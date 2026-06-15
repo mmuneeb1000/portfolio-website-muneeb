@@ -35,7 +35,7 @@ export default function Navbar() {
       }}
     >
       <span style={{ color: "var(--green)", fontWeight: 500, fontSize: 15 }}>
-        m.muneeb@portfolio:~$
+        muneeb@portfolio:~$
       </span>
       <div style={{ display: "flex", gap: 28 }}>
         {links.map((l) => (

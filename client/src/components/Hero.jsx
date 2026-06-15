@@ -134,7 +134,7 @@ export default function Hero() {
             <div key={i} style={{ marginBottom: 4 }}>
               <div>
                 <span style={{ color: "var(--green)", userSelect: "none" }}>
-                  m.muneeb@portfolio:~${" "}
+                  muneeb@portfolio:~${" "}
                 </span>
                 {line.typing ? (
                   <TypedLine
@@ -163,7 +163,7 @@ export default function Hero() {
           {typingIndex >= lines.length && (
             <div>
               <span style={{ color: "var(--green)", userSelect: "none" }}>
-                m.muneeb@portfolio:~${" "}
+                muneeb@portfolio:~${" "}
               </span>
               <span className="cursor" />
             </div>
