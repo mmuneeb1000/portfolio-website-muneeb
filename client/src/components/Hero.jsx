@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 const lines = [
-  { prompt: "whoami", delay: 400, output: "m.muneeb" },
+  { prompt: "whoami", delay: 400, output: "alex chen" },
   { prompt: "cat role.txt", delay: 1200, output: "frontend developer" },
-  {
-    prompt: "cat stack.txt",
-    delay: 2000,
-    output: "React · TypeScript · Node.js · CSS",
-  },
-  {
-    prompt: "uptime",
-    delay: 2800,
-    output: "3 years building things for the web",
-  },
+  { prompt: "cat stack.txt", delay: 2000, output: "React · TypeScript · Node.js · CSS" },
+  { prompt: "uptime", delay: 2800, output: "3 years building things for the web" },
 ];
 
 function TypedLine({ text, speed = 40, onDone }) {
@@ -53,7 +45,7 @@ export default function Hero() {
   const handlePromptDone = (i) => {
     setTimeout(() => {
       setVisibleLines((prev) =>
-        prev.map((l, idx) => (idx === i ? { ...l, showOutput: true } : l)),
+        prev.map((l, idx) => (idx === i ? { ...l, showOutput: true } : l))
       );
       setTimeout(() => {
         setTypingIndex((prev) => prev + 1);
@@ -62,14 +54,8 @@ export default function Hero() {
   };
 
   const skills = [
-    "React",
-    "TypeScript",
-    "Next.js",
-    "CSS / Tailwind",
-    "Vite",
-    "Node.js",
-    "REST APIs",
-    "Git",
+    "React", "TypeScript", "Next.js", "CSS / Tailwind",
+    "Vite", "Node.js", "REST APIs", "Git",
   ];
 
   return (
@@ -134,7 +120,7 @@ export default function Hero() {
             <div key={i} style={{ marginBottom: 4 }}>
               <div>
                 <span style={{ color: "var(--green)", userSelect: "none" }}>
-                  muneeb@portfolio:~${" "}
+                  alex@portfolio:~${" "}
                 </span>
                 {line.typing ? (
                   <TypedLine
@@ -146,13 +132,7 @@ export default function Hero() {
                 )}
               </div>
               {line.showOutput && (
-                <div
-                  style={{
-                    color: "var(--text)",
-                    paddingLeft: 0,
-                    marginBottom: 8,
-                  }}
-                >
+                <div style={{ color: "var(--text)", paddingLeft: 0, marginBottom: 8 }}>
                   {line.output}
                 </div>
               )}
@@ -163,7 +143,7 @@ export default function Hero() {
           {typingIndex >= lines.length && (
             <div>
               <span style={{ color: "var(--green)", userSelect: "none" }}>
-                muneeb@portfolio:~${" "}
+                alex@portfolio:~${" "}
               </span>
               <span className="cursor" />
             </div>
