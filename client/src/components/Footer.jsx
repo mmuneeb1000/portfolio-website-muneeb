@@ -11,7 +11,7 @@ export default function Footer() {
         fontSize: 12,
       }}
     >
-      <span style={{ color: "var(--green)" }}>alex@portfolio:~$ </span>
+      <span style={{ color: "var(--green)" }}>m.muneeb@portfolio:~$ </span>
       echo "built with React + Express + Node.js · {new Date().getFullYear()}"
     </footer>
   );
