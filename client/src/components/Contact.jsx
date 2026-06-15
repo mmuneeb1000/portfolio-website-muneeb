@@ -62,11 +62,19 @@ export default function Contact() {
       >
         <p style={{ color: "var(--muted)", fontSize: 13, marginBottom: 28 }}>
           <span style={{ color: "var(--green)" }}># </span>
-          Open to freelance, full-time roles, or just a good chat about frontend.
+          Open to freelance, full-time roles, or just a good chat about web
+          development.
         </p>
 
         <div style={{ marginBottom: 16 }}>
-          <label style={{ color: "var(--muted)", fontSize: 12, display: "block", marginBottom: 6 }}>
+          <label
+            style={{
+              color: "var(--muted)",
+              fontSize: 12,
+              display: "block",
+              marginBottom: 6,
+            }}
+          >
             --name
           </label>
           <input
@@ -81,7 +89,14 @@ export default function Contact() {
         </div>
 
         <div style={{ marginBottom: 16 }}>
-          <label style={{ color: "var(--muted)", fontSize: 12, display: "block", marginBottom: 6 }}>
+          <label
+            style={{
+              color: "var(--muted)",
+              fontSize: 12,
+              display: "block",
+              marginBottom: 6,
+            }}
+          >
             --email
           </label>
           <input
@@ -97,7 +112,14 @@ export default function Contact() {
         </div>
 
         <div style={{ marginBottom: 24 }}>
-          <label style={{ color: "var(--muted)", fontSize: 12, display: "block", marginBottom: 6 }}>
+          <label
+            style={{
+              color: "var(--muted)",
+              fontSize: 12,
+              display: "block",
+              marginBottom: 6,
+            }}
+          >
             --message
           </label>
           <textarea
@@ -131,8 +153,8 @@ export default function Contact() {
           {status === "sending"
             ? "$ sending..."
             : status === "ok"
-            ? "✓ message sent"
-            : "$ send message →"}
+              ? "✓ message sent"
+              : "$ send message →"}
         </button>
 
         {status === "error" && (
