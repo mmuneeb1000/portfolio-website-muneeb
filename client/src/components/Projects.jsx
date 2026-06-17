@@ -6,7 +6,7 @@ export default function Projects() {
   const [hovered, setHovered] = useState(null);
 
   useEffect(() => {
-    fetch("/api/projects")
+    fetch("https://portfolio-website-muneeb.onrender.com/api/projects")
       .then((r) => r.json())
       .then((d) => {
         setProjects(d.data);
@@ -21,8 +21,7 @@ export default function Projects() {
 
       {loading ? (
         <p style={{ color: "var(--muted)" }}>
-          fetching...{" "}
-          <span className="cursor" />
+          fetching... <span className="cursor" />
         </p>
       ) : (
         <div>
@@ -51,8 +50,7 @@ export default function Projects() {
               onMouseEnter={() => setHovered(p.id)}
               onMouseLeave={() => setHovered(null)}
               style={{
-                background:
-                  hovered === p.id ? "var(--surface)" : "transparent",
+                background: hovered === p.id ? "var(--surface)" : "transparent",
                 border:
                   hovered === p.id
                     ? "1px solid var(--border)"
@@ -99,7 +97,13 @@ export default function Projects() {
               {/* Expanded detail */}
               {hovered === p.id && (
                 <div style={{ paddingLeft: 0 }}>
-                  <p style={{ color: "var(--muted)", fontSize: 13, marginBottom: 10 }}>
+                  <p
+                    style={{
+                      color: "var(--muted)",
+                      fontSize: 13,
+                      marginBottom: 10,
+                    }}
+                  >
                     <span style={{ color: "var(--green)" }}># </span>
                     {p.description}
                   </p>
