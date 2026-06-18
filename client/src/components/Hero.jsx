@@ -181,7 +181,7 @@ export default function Hero() {
             display: "flex",
             flexWrap: "wrap",
             gap: 10,
-            justifyContent: center,
+            justifyContent: "center",
           }}
         >
           {skills.map((s) => (
