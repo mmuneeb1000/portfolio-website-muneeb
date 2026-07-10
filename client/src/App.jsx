@@ -10,7 +10,7 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="mx-auto lg:w-200">
         <Hero />
         <Projects />
         <Blog />

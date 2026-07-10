@@ -15,118 +15,68 @@ export default function Blog() {
   }, []);
 
   return (
-    <section
-      id="blog"
-      className="section"
-      style={{ borderTop: "1px solid var(--border)" }}
-    >
-      <div className="section-header" data-cmd="cat ~/blog/index.md" />
-
+    <section id="blog" className="border-t mt-10 border-border">
       {loading ? (
-        <p style={{ color: "var(--muted)" }}>
+        <p className="text-muted">
           fetching... <span className="cursor" />
         </p>
       ) : (
-        <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
+        <div className="flex flex-col gap-px">
           {posts.map((post, i) => (
             <a
               key={post.id}
               href={`/blog/${post.slug}`}
-              style={{ textDecoration: "none" }}
+              className="no-underline"
             >
               <div
-                className="fade-in"
+                className="fade-in grid grid-cols-[1fr_auto] items-start gap-6 border-b 
+                px-4 py-5 transition-colors duration-150 hover:rounded-md"
                 style={{
-                  padding: "20px 16px",
-                  borderBottom: "1px solid var(--border)",
-                  display: "grid",
-                  gridTemplateColumns: "1fr auto",
-                  gap: 24,
-                  alignItems: "start",
-                  transition: "background 0.15s",
+                  borderColor: "var(--border)",
                   animationDelay: `${i * 60}ms`,
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "var(--surface)";
-                  e.currentTarget.style.borderRadius = "6px";
+                  e.currentTarget.style.background = "var(--color-surface)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.borderRadius = "0";
                 }}
               >
                 <div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 10,
-                      marginBottom: 6,
-                    }}
-                  >
-                    <span style={{ color: "var(--green)", fontSize: 12 }}>
-                      →
-                    </span>
-                    <span
-                      style={{
-                        color: "var(--text)",
-                        fontWeight: 500,
-                        fontSize: 14,
-                      }}
-                    >
+                  <div className="mb-1.5 flex items-center gap-2.5 ">
+                    <span className="text-xs text-text">→</span>
+
+                    <span className="text-sm font-medium text-text">
                       {post.title}
                     </span>
                   </div>
-                  <p
-                    style={{
-                      color: "var(--muted)",
-                      fontSize: 13,
-                      lineHeight: 1.6,
-                      paddingLeft: 22,
-                    }}
-                  >
+
+                  <p className="pl-[22px] text-[13px] leading-[1.6] text-muted">
                     {post.excerpt}
                   </p>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: 8,
-                      marginTop: 10,
-                      paddingLeft: 22,
-                    }}
-                  >
+
+                  <div className="mt-2.5 flex gap-2 pl-[22px]">
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        style={{
-                          background: "var(--green-muted)",
-                          color: "var(--green)",
-                          border: "1px solid #004d2e",
-                          borderRadius: 3,
-                          padding: "1px 8px",
-                          fontSize: 11,
-                        }}
+                        className="rounded-[3px] text-green bg-green-muted border-[#004d2e] border px-2 py-[1px] text-[11px]"
                       >
                         #{tag}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div style={{ textAlign: "right", flexShrink: 0 }}>
-                  <p style={{ color: "var(--muted)", fontSize: 12 }}>
+
+                <div className="shrink-0 text-right">
+                  <p className="text-xs text-muted">
                     {new Date(post.date).toLocaleDateString("en-GB", {
                       day: "numeric",
                       month: "short",
                       year: "numeric",
                     })}
                   </p>
-                  <p
-                    style={{
-                      color: "var(--muted)",
-                      fontSize: 11,
-                      marginTop: 4,
-                    }}
-                  >
+
+                  <p className="mt-1 text-[11px] color-muted">
                     {post.readTime}
                   </p>
                 </div>

@@ -3,15 +3,10 @@ import React from "react";
 export default function Footer() {
   return (
     <footer
-      style={{
-        borderTop: "1px solid var(--border)",
-        padding: "24px",
-        textAlign: "center",
-        color: "var(--muted)",
-        fontSize: 12,
-      }}
+      className="border-t px-6 py-6 text-center text-xs text-[var(--muted)]"
+      style={{ borderColor: "var(--border)" }}
     >
-      <span style={{ color: "var(--green)" }}>m.muneeb@portfolio:~$ </span>
+      <span className="text-[var(--green)]">m.muneeb@portfolio:~$ </span>
       echo "built with React + Express + Node.js · {new Date().getFullYear()}"
     </footer>
   );

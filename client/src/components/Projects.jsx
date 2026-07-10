@@ -16,32 +16,22 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="section">
-      <div className="section-header" data-cmd="ls -la ~/projects/" />
-
+    <section id="projects">
       {loading ? (
-        <p style={{ color: "var(--muted)" }}>
+        <p className="text-muted">
           fetching... <span className="cursor" />
         </p>
       ) : (
-        <div>
-          {/* ls header */}
+        <div className="p-3 rounded-xl">
           <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "60px 60px 1fr 120px",
-              color: "var(--muted)",
-              fontSize: 12,
-              padding: "0 0 8px",
-              borderBottom: "1px solid var(--border)",
-              marginBottom: 8,
-              gap: 16,
-            }}
+            className="mb-2 grid grid-cols-[60px_60px_1fr_120px] gap-4 
+            border-b border-border pb-2 text-xs text-muted"
+            s
           >
             <span>perms</span>
             <span>size</span>
             <span>name</span>
-            <span style={{ textAlign: "right" }}>modified</span>
+            <span className="text-right">modified</span>
           </div>
 
           {projects.map((p, i) => (
@@ -49,102 +39,63 @@ export default function Projects() {
               key={p.id}
               onMouseEnter={() => setHovered(p.id)}
               onMouseLeave={() => setHovered(null)}
+              className="fade-in mb-1 cursor-pointer rounded-md border p-3 transition-all duration-150"
               style={{
-                background: hovered === p.id ? "var(--surface)" : "transparent",
-                border:
-                  hovered === p.id
-                    ? "1px solid var(--border)"
-                    : "1px solid transparent",
-                borderRadius: 6,
-                padding: "16px 12px",
-                marginBottom: 4,
-                cursor: "pointer",
-                transition: "all 0.15s ease",
+                background:
+                  hovered === p.id ? "var(--color-surface)" : "transparent",
+                borderColor:
+                  hovered === p.id ? "var(--color-border)" : "transparent",
                 animationDelay: `${i * 80}ms`,
               }}
-              className="fade-in"
             >
-              {/* ls row */}
               <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "60px 60px 1fr 120px",
-                  alignItems: "center",
-                  gap: 16,
-                  marginBottom: hovered === p.id ? 12 : 0,
-                }}
+                className={`grid grid-cols-[60px_60px_1fr_120px] items-center gap-4 ${
+                  hovered === p.id ? "mb-3" : ""
+                }`}
               >
-                <span style={{ color: "var(--green)", fontSize: 12 }}>
-                  drwxr-xr-x
-                </span>
-                <span style={{ color: "var(--muted)", fontSize: 12 }}>
-                  {p.size}
-                </span>
-                <span style={{ color: "var(--text)", fontWeight: 500 }}>
-                  {p.name}/
-                </span>
-                <span
-                  style={{
-                    color: "var(--muted)",
-                    fontSize: 12,
-                    textAlign: "right",
-                  }}
-                >
-                  {p.date}
-                </span>
+                <span className="text-xs text-green">drwxr-xr-x</span>
+
+                <span className="text-xs text-muted">{p.size}</span>
+
+                <span className="font-medium text-text">{p.name}/</span>
+
+                <span className="text-right text-xs text-muted">{p.date}</span>
               </div>
 
-              {/* Expanded detail */}
               {hovered === p.id && (
-                <div style={{ paddingLeft: 0 }}>
-                  <p
-                    style={{
-                      color: "var(--muted)",
-                      fontSize: 13,
-                      marginBottom: 10,
-                    }}
-                  >
-                    <span style={{ color: "var(--green)" }}># </span>
+                <div>
+                  <p className="mb-2.5 text-[13px] text-muted">
+                    <span className="text-green"># </span>
                     {p.description}
                   </p>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 6,
-                      marginBottom: 14,
-                    }}
-                  >
+
+                  <div className="mb-3.5 flex flex-wrap gap-1.5">
                     {p.tech.map((t) => (
                       <span
                         key={t}
-                        style={{
-                          background: "var(--surface2)",
-                          color: "var(--muted)",
-                          border: "1px solid var(--border)",
-                          borderRadius: 3,
-                          padding: "2px 8px",
-                          fontSize: 11,
-                        }}
+                        className="rounded-[3px] bg-surface2 border-border
+                         border px-2 py-0.5 text-[11px] text-muted"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
-                  <div style={{ display: "flex", gap: 16 }}>
+
+                  <div className="flex flex-col gap-4">
                     <a
                       href={p.github}
                       target="_blank"
                       rel="noreferrer"
-                      style={{ color: "var(--green)", fontSize: 12 }}
+                      className="text-xs text-green"
                     >
                       $ git clone →
                     </a>
+
                     <a
                       href={p.live}
                       target="_blank"
                       rel="noreferrer"
-                      style={{ color: "var(--muted)", fontSize: 12 }}
+                      className="text-xs text-text"
                     >
                       $ open live →
                     </a>
@@ -154,7 +105,7 @@ export default function Projects() {
             </div>
           ))}
 
-          <p style={{ color: "var(--muted)", fontSize: 12, marginTop: 16 }}>
+          <p className="mt-4 text-xs text-muted">
             {projects.length} directories
           </p>
         </div>

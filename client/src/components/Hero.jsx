@@ -20,15 +20,19 @@ function TypedLine({ text, speed = 40, onDone }) {
 
   useEffect(() => {
     setDisplayed("");
+
     let i = 0;
+
     const id = setInterval(() => {
       setDisplayed(text.slice(0, i + 1));
       i++;
+
       if (i >= text.length) {
         clearInterval(id);
         onDone && onDone();
       }
     }, speed);
+
     return () => clearInterval(id);
   }, [text]);
 
@@ -38,15 +42,16 @@ function TypedLine({ text, speed = 40, onDone }) {
 export default function Hero() {
   const [visibleLines, setVisibleLines] = useState([]);
   const [typingIndex, setTypingIndex] = useState(0);
-  const [promptDone, setPromptDone] = useState(false);
 
   useEffect(() => {
     const next = lines[typingIndex];
+
     if (!next) return;
+
     const t = setTimeout(() => {
       setVisibleLines((prev) => [...prev, { ...next, typing: true }]);
-      setPromptDone(false);
     }, next.delay);
+
     return () => clearTimeout(t);
   }, [typingIndex]);
 
@@ -55,6 +60,7 @@ export default function Hero() {
       setVisibleLines((prev) =>
         prev.map((l, idx) => (idx === i ? { ...l, showOutput: true } : l)),
       );
+
       setTimeout(() => {
         setTypingIndex((prev) => prev + 1);
       }, 200);
@@ -73,69 +79,30 @@ export default function Hero() {
   ];
 
   return (
-    <section
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        padding: "120px 24px 80px",
-        maxWidth: 860,
-        margin: "0 auto",
-      }}
-    >
-      {/* Terminal window */}
-      <div
-        style={{
-          background: "var(--surface)",
-          border: "1px solid var(--border)",
-          borderRadius: 10,
-          overflow: "hidden",
-          marginBottom: 48,
-        }}
-      >
-        {/* Title bar */}
-        <div
-          style={{
-            background: "var(--surface2)",
-            borderBottom: "1px solid var(--border)",
-            padding: "10px 16px",
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-          }}
-        >
+    <section className="px-6 py-20">
+      <div className="mb-12 overflow-hidden rounded-[10px] border border-border bg-surface">
+        <div className="flex items-center gap-2 border-b bg-surface2 border-border px-4 py-2.5">
           {["#ff5f57", "#ffbd2e", "#28ca41"].map((c) => (
             <span
               key={c}
-              style={{
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                background: c,
-                display: "inline-block",
-              }}
+              className="h-3 w-3 rounded-full"
+              style={{ background: c }}
             />
           ))}
-          <span
-            style={{
-              color: "var(--muted)",
-              fontSize: 12,
-              marginLeft: 8,
-            }}
-          >
+
+          <span className="ml-2 text-xs text-muted">
             portfolio — zsh — 80×24
           </span>
         </div>
 
-        {/* Terminal body */}
-        <div style={{ padding: "24px 28px", minHeight: 200 }}>
+        <div className="min-h-[200px] p-6 md:px-7">
           {visibleLines.map((line, i) => (
-            <div key={i} style={{ marginBottom: 4 }}>
+            <div key={i} className="mb-1">
               <div>
-                <span style={{ color: "var(--green)", userSelect: "none" }}>
+                <span className="select-none text-green">
                   muneeb@portfolio:~${" "}
                 </span>
+
                 {line.typing ? (
                   <TypedLine
                     text={line.prompt}
@@ -145,24 +112,16 @@ export default function Hero() {
                   <span>{line.prompt}</span>
                 )}
               </div>
+
               {line.showOutput && (
-                <div
-                  style={{
-                    color: "var(--text)",
-                    paddingLeft: 0,
-                    marginBottom: 8,
-                  }}
-                >
-                  {line.output}
-                </div>
+                <div className="mb-2 text-text">{line.output}</div>
               )}
             </div>
           ))}
 
-          {/* Active cursor line */}
           {typingIndex >= lines.length && (
             <div>
-              <span style={{ color: "var(--green)", userSelect: "none" }}>
+              <span className="select-none text-green">
                 muneeb@portfolio:~${" "}
               </span>
               <span className="cursor" />
@@ -171,48 +130,32 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Skills grid */}
       <div>
-        <p style={{ color: "var(--muted)", fontSize: 12, marginBottom: 14 }}>
-          <span style={{ color: "var(--green)" }}># </span>skills /
+        <p className="mb-3.5 text-xs text-muted">
+          <span className="text-green"># </span>
+          skills /
         </p>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 10,
-            justifyContent: "center",
-          }}
-        >
-          {skills.map((s) => (
+
+        <div className="flex flex-wrap justify-center gap-2.5">
+          {skills.map((skill) => (
             <span
-              key={s}
-              style={{
-                background: "var(--green-muted)",
-                color: "var(--green)",
-                border: "1px solid #004d2e",
-                borderRadius: 4,
-                padding: "4px 12px",
-                fontSize: 12,
-              }}
+              key={skill}
+              className="rounded border px-3 py-1 text-xs bg-green-muted text-green border-[#004d2e]"
             >
-              {s}
+              {skill}
             </span>
           ))}
         </div>
       </div>
 
-      {/* Scroll hint */}
       <p
+        className="mt-10 text-xs text-muted"
         style={{
-          color: "var(--muted)",
-          fontSize: 12,
-          marginTop: 56,
           animation: "blink 2s step-end infinite",
         }}
       >
-        scroll down or run{" "}
-        <span style={{ color: "var(--green)" }}>ls projects/</span>
+        scroll down or run
+        <span className="text-green"> ls projects/</span>
       </p>
     </section>
   );

@@ -1,21 +1,16 @@
 import React, { useState } from "react";
 
-const inputStyle = {
-  width: "100%",
-  background: "var(--surface)",
-  border: "1px solid var(--border)",
-  borderRadius: 6,
-  padding: "10px 14px",
-  color: "var(--text)",
-  fontFamily: "var(--font)",
-  fontSize: 13,
-  outline: "none",
-  transition: "border-color 0.2s",
-};
+const inputClass =
+  "w-full rounded-md border bg-[var(--surface)] px-[14px] py-[10px] text-[13px] text-[var(--text)] outline-none transition-colors";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState(null); // null | 'sending' | 'ok' | 'error'
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState(null);
   const [errMsg, setErrMsg] = useState("");
 
   const handleChange = (e) =>
@@ -23,19 +18,28 @@ export default function Contact() {
 
   const handleSubmit = async () => {
     setStatus("sending");
+
     try {
       const res = await fetch(
         "https://portfolio-website-muneeb.onrender.com/api/contact",
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(form),
         },
       );
+
       const data = await res.json();
+
       if (data.success) {
         setStatus("ok");
-        setForm({ name: "", email: "", message: "" });
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
       } else {
         setStatus("error");
         setErrMsg(data.error || "Something went wrong.");
@@ -47,91 +51,65 @@ export default function Contact() {
   };
 
   return (
-    <section
-      id="contact"
-      className="section"
-      style={{ borderTop: "1px solid var(--border)" }}
-    >
-      <div className="section-header" data-cmd="./contact.sh" />
-
+    <section id="contact" className=" m-10">
       <div
-        style={{
-          background: "var(--surface)",
-          border: "1px solid var(--border)",
-          borderRadius: 10,
-          padding: "32px 36px",
-          maxWidth: 560,
-        }}
+        className="max-w-[560px] rounded-[10px] border bg-[var(--surface)] px-9 py-8"
+        style={{ borderColor: "var(--border)" }}
       >
-        <p style={{ color: "var(--muted)", fontSize: 13, marginBottom: 28 }}>
-          <span style={{ color: "var(--green)" }}># </span>
+        <p className="mb-7 text-[13px] text-[var(--muted)]">
+          <span className="text-[var(--green)]"># </span>
           Open to freelance, full-time roles, or just a good chat about web
           development.
         </p>
 
-        <div style={{ marginBottom: 16 }}>
-          <label
-            style={{
-              color: "var(--muted)",
-              fontSize: 12,
-              display: "block",
-              marginBottom: 6,
-            }}
-          >
+        <div className="mb-4">
+          <label className="mb-1.5 block text-xs text-[var(--muted)]">
             --name
           </label>
+
           <input
             name="name"
             value={form.name}
             onChange={handleChange}
             placeholder="your name"
-            style={inputStyle}
+            className={inputClass}
+            style={{ borderColor: "var(--border)" }}
             onFocus={(e) => (e.target.style.borderColor = "var(--green)")}
             onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
           />
         </div>
 
-        <div style={{ marginBottom: 16 }}>
-          <label
-            style={{
-              color: "var(--muted)",
-              fontSize: 12,
-              display: "block",
-              marginBottom: 6,
-            }}
-          >
+        <div className="mb-4">
+          <label className="mb-1.5 block text-xs text-[var(--muted)]">
             --email
           </label>
+
           <input
             name="email"
             type="email"
             value={form.email}
             onChange={handleChange}
             placeholder="you@example.com"
-            style={inputStyle}
+            className={inputClass}
+            style={{ borderColor: "var(--border)" }}
             onFocus={(e) => (e.target.style.borderColor = "var(--green)")}
             onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
           />
         </div>
 
-        <div style={{ marginBottom: 24 }}>
-          <label
-            style={{
-              color: "var(--muted)",
-              fontSize: 12,
-              display: "block",
-              marginBottom: 6,
-            }}
-          >
+        <div className="mb-6">
+          <label className="mb-1.5 block text-xs text-[var(--muted)]">
             --message
           </label>
+
           <textarea
             name="message"
+            rows={5}
             value={form.message}
             onChange={handleChange}
             placeholder="what's on your mind?"
-            rows={5}
-            style={{ ...inputStyle, resize: "vertical" }}
+            className={`${inputClass} resize-y`}
+            style={{ borderColor: "var(--border)" }}
             onFocus={(e) => (e.target.style.borderColor = "var(--green)")}
             onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
           />
@@ -140,17 +118,11 @@ export default function Contact() {
         <button
           onClick={handleSubmit}
           disabled={status === "sending"}
+          className="rounded-md border px-6 py-[10px] text-[13px] transition-all disabled:cursor-not-allowed disabled:opacity-60"
           style={{
             background: status === "ok" ? "var(--green-muted)" : "transparent",
-            border: `1px solid ${status === "ok" ? "var(--green)" : "var(--green)"}`,
+            borderColor: "var(--green)",
             color: "var(--green)",
-            fontFamily: "var(--font)",
-            fontSize: 13,
-            padding: "10px 24px",
-            borderRadius: 6,
-            cursor: status === "sending" ? "not-allowed" : "pointer",
-            transition: "all 0.2s",
-            opacity: status === "sending" ? 0.6 : 1,
           }}
         >
           {status === "sending"
@@ -161,35 +133,26 @@ export default function Contact() {
         </button>
 
         {status === "error" && (
-          <p style={{ color: "#f85149", fontSize: 12, marginTop: 12 }}>
-            ✗ {errMsg}
-          </p>
+          <p className="mt-3 text-xs text-[#f85149]">✗ {errMsg}</p>
         )}
 
         <div
-          style={{
-            marginTop: 32,
-            paddingTop: 24,
-            borderTop: "1px solid var(--border)",
-            display: "flex",
-            gap: 24,
-          }}
+          className="mt-8 flex gap-6 border-t pt-6"
+          style={{ borderColor: "var(--border)" }}
         >
           {[
             { label: "github", href: "https://github.com" },
             { label: "linkedin", href: "https://linkedin.com" },
             { label: "twitter", href: "https://twitter.com" },
-          ].map((l) => (
+          ].map((link) => (
             <a
-              key={l.label}
-              href={l.href}
+              key={link.label}
+              href={link.href}
               target="_blank"
               rel="noreferrer"
-              style={{ color: "var(--muted)", fontSize: 12 }}
-              onMouseEnter={(e) => (e.target.style.color = "var(--green)")}
-              onMouseLeave={(e) => (e.target.style.color = "var(--muted)")}
+              className="text-xs text-[var(--muted)] transition-colors hover:text-[var(--green)]"
             >
-              ./{l.label}
+              ./{link.label}
             </a>
           ))}
         </div>

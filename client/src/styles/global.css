@@ -1,22 +1,19 @@
 @import "tailwindcss";
 
-:root {
-  --bg: #0d1117;
-  --surface: #161b22;
-  --surface2: #21262d;
-  --green: #00ff85;
-  --green-dim: #00cc6a;
-  --green-muted: #1a3d2e;
-  --text: #e6edf3;
-  --muted: #8b949e;
-  --border: #30363d;
-  --font: "JetBrains Mono", "Courier New", monospace;
-}
+@theme {
+  --color-bg: #0d1117;
+  --color-surface: #161b22;
+  --color-surface2: #21262d;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  --color-green: #00ff85;
+  --color-green-dim: #00cc6a;
+  --color-green-muted: #1a3d2e;
+
+  --color-text: #e6edf3;
+  --color-muted: #8b949e;
+  --color-border: #30363d;
+
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
 }
 
 html {
@@ -24,23 +21,24 @@ html {
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
   font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--green);
-  color: var(--bg);
+  background: var(--color-green);
+  color: var(--color-bg);
 }
 
 a {
-  color: var(--green);
+  color: var(--color-green);
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -49,11 +47,13 @@ a:hover {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+  background: var(--color-bg);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--color-border);
   border-radius: 3px;
 }
 
@@ -63,6 +63,7 @@ a:hover {
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
@@ -72,7 +73,7 @@ a:hover {
   display: inline-block;
   width: 10px;
   height: 1.1em;
-  background: var(--green);
+  background: var(--color-green);
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
   margin-left: 2px;
@@ -83,6 +84,7 @@ a:hover {
   from {
     width: 0;
   }
+
   to {
     width: 100%;
   }
@@ -100,13 +102,13 @@ a:hover {
   align-items: center;
   gap: 12px;
   margin-bottom: 40px;
-  color: var(--muted);
+  color: var(--color-muted);
   font-size: 13px;
 }
 
 .section-header::before {
   content: attr(data-cmd);
-  color: var(--green);
+  color: var(--color-green);
   font-weight: 500;
 }
 
@@ -114,15 +116,16 @@ a:hover {
   content: "";
   flex: 1;
   height: 1px;
-  background: var(--border);
+  background: var(--color-border);
 }
 
-/* Scrollfade in */
+/* Scroll fade in */
 @keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
