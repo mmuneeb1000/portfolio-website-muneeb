@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 
-const inputClass =
-  "w-full rounded-md border bg-[var(--surface)] px-[14px] py-[10px] text-[13px] text-[var(--text)] outline-none transition-colors";
-
 export default function Contact() {
   const [form, setForm] = useState({
     name: "",
@@ -52,30 +49,26 @@ export default function Contact() {
 
   return (
     <section id="contact" className=" m-10">
-      <div
-        className="max-w-[560px] rounded-[10px] border bg-[var(--surface)] px-9 py-8"
-        style={{ borderColor: "var(--border)" }}
-      >
-        <p className="mb-7 text-[13px] text-[var(--muted)]">
-          <span className="text-[var(--green)]"># </span>
+      <div className="max-w-[560px] rounded-[10px] border bg-surface border-border px-9 py-8">
+        <p className="mb-7 text-[13px] text-muted">
+          <span className="text-green"># </span>
           Open to freelance, full-time roles, or just a good chat about web
           development.
         </p>
 
         <div className="mb-4">
-          <label className="mb-1.5 block text-xs text-[var(--muted)]">
-            --name
-          </label>
+          <label className="mb-1.5 block text-xs text--muted">--name</label>
 
           <input
             name="name"
             value={form.name}
             onChange={handleChange}
             placeholder="your name"
-            className={inputClass}
-            style={{ borderColor: "var(--border)" }}
-            onFocus={(e) => (e.target.style.borderColor = "var(--green)")}
-            onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
+            className="w-full rounded-md border bg-surface
+            px-[14px] py-[10px] text-[13px] text-text border-border
+            outline-none transition-colors"
+            onFocus={(e) => (e.target.style.borderColor = "var(--color-green)")}
+            onBlur={(e) => (e.target.style.borderColor = "var(--color-border)")}
           />
         </div>
 
@@ -90,10 +83,11 @@ export default function Contact() {
             value={form.email}
             onChange={handleChange}
             placeholder="you@example.com"
-            className={inputClass}
-            style={{ borderColor: "var(--border)" }}
-            onFocus={(e) => (e.target.style.borderColor = "var(--green)")}
-            onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
+            className="w-full rounded-md border bg-surface
+            px-[14px] py-[10px] text-[13px] text-text border-border
+            outline-none transition-colors"
+            onFocus={(e) => (e.target.style.borderColor = "var(--color-green)")}
+            onBlur={(e) => (e.target.style.borderColor = "var(--color-border)")}
           />
         </div>
 
@@ -108,22 +102,19 @@ export default function Contact() {
             value={form.message}
             onChange={handleChange}
             placeholder="what's on your mind?"
-            className={`${inputClass} resize-y`}
-            style={{ borderColor: "var(--border)" }}
-            onFocus={(e) => (e.target.style.borderColor = "var(--green)")}
-            onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
+            className={`w-full rounded-md border bg-surface
+            px-[14px] py-[10px] text-[13px] text-text border-border
+            outline-none transition-colors resize-y`}
+            onFocus={(e) => (e.target.style.borderColor = "var(--color-green)")}
+            onBlur={(e) => (e.target.style.borderColor = "var(--color-border)")}
           />
         </div>
 
         <button
           onClick={handleSubmit}
           disabled={status === "sending"}
-          className="rounded-md border px-6 py-[10px] text-[13px] transition-all disabled:cursor-not-allowed disabled:opacity-60"
-          style={{
-            background: status === "ok" ? "var(--green-muted)" : "transparent",
-            borderColor: "var(--green)",
-            color: "var(--green)",
-          }}
+          className="rounded-md border px-6 py-[10px] text-[13px] border-green text-green
+          transition-all disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === "sending"
             ? "$ sending..."
@@ -136,21 +127,21 @@ export default function Contact() {
           <p className="mt-3 text-xs text-[#f85149]">✗ {errMsg}</p>
         )}
 
-        <div
-          className="mt-8 flex gap-6 border-t pt-6"
-          style={{ borderColor: "var(--border)" }}
-        >
+        <div className="mt-8 flex gap-6 border-t pt-6 border-border">
           {[
-            { label: "github", href: "https://github.com" },
-            { label: "linkedin", href: "https://linkedin.com" },
-            { label: "twitter", href: "https://twitter.com" },
+            { label: "github", href: "https://github.com/mmuneeb1000" },
+            {
+              label: "linkedin",
+              href: "https://www.linkedin.com/in/m-muneeb-a9984633b/",
+            },
+            { label: "twitter", href: "https://x.com/Kiwitourist" },
           ].map((link) => (
             <a
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noreferrer"
-              className="text-xs text-[var(--muted)] transition-colors hover:text-[var(--green)]"
+              className="text-xs text-muted transition-colors hover:text-green"
             >
               ./{link.label}
             </a>
