@@ -79,7 +79,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="px-6 py-20">
+    <section className="py-4">
       <div className="mb-12 overflow-hidden rounded-[10px] border border-border bg-surface">
         <div className="flex items-center gap-2 border-b bg-surface2 border-border px-4 py-2.5">
           {["#ff5f57", "#ffbd2e", "#28ca41"].map((c) => (

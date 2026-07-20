@@ -10,7 +10,7 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main className="mx-auto lg:w-200">
+      <main className="mx-auto px-6 py-10 lg:w-200">
         <Hero />
         <Projects />
         <Components />

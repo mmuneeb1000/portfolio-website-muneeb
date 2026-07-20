@@ -49,7 +49,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="m-6 md:m-10">
+    <section id="contact" className="md:m-10">
       <div className="max-w-[560px] rounded-[10px] border bg-surface border-border px-9 py-8">
         <p className="mb-7 text-[13px] text-muted">
           <span className="text-green"># </span>
