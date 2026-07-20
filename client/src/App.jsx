@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import Projects from "./components/Projects.jsx";
-import Blog from "./components/Blog.jsx";
+import Components from "./components/Components.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -13,7 +13,7 @@ export default function App() {
       <main className="mx-auto lg:w-200">
         <Hero />
         <Projects />
-        <Blog />
+        <Components />
         <Contact />
       </main>
       <Footer />
