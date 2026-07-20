@@ -47,6 +47,8 @@ export default function Components() {
 
                   <a
                     href={p.live}
+                    target="_blank"
+                    rel="noreferrer"
                     className="font-medium text-text text-right lg:text-left"
                   >
                     {p.name}/
