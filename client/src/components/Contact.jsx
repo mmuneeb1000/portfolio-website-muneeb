@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FiSend, FiCheck, FiLoader } from "react-icons/fi";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -48,7 +49,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className=" m-10">
+    <section id="contact" className="m-6 md:m-10">
       <div className="max-w-[560px] rounded-[10px] border bg-surface border-border px-9 py-8">
         <p className="mb-7 text-[13px] text-muted">
           <span className="text-green"># </span>
@@ -113,14 +114,26 @@ export default function Contact() {
         <button
           onClick={handleSubmit}
           disabled={status === "sending"}
-          className="rounded-md border px-6 py-[10px] text-[13px] border-green text-green
-          transition-all disabled:cursor-not-allowed disabled:opacity-60"
+          className="flex items-center gap-2 rounded-md border border-green px-6 py-[10px] text-[13px] 
+          text-green transition-all hover:bg-green hover:text-bg 
+          disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {status === "sending"
-            ? "$ sending..."
-            : status === "ok"
-              ? "✓ message sent"
-              : "$ send message →"}
+          {status === "sending" ? (
+            <>
+              <FiLoader className="animate-spin" />
+              Sending...
+            </>
+          ) : status === "ok" ? (
+            <>
+              <FiCheck />
+              Message sent
+            </>
+          ) : (
+            <>
+              <FiSend />
+              Send message
+            </>
+          )}
         </button>
 
         {status === "error" && (
