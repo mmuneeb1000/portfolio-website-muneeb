@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 const projects = require("./data/projects");
-const posts = require("./data/posts");
+const posts = require("./data/components");
 
 app.get("/api/projects", (req, res) => {
   res.json({ success: true, data: projects });

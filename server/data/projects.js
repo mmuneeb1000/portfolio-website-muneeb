@@ -1,6 +1,27 @@
 module.exports = [
   {
     id: 1,
+    name: "closer-kit-free-marketing-tool",
+    description: "CloserKit - Leads & Proposals",
+    tech: [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node",
+      "Tailwind CSS",
+      "Router",
+      "OpenAI",
+      "Axios",
+      "cors",
+      "dotenv",
+    ],
+    github: "https://github.com/mmuneeb1000/closerkit",
+    live: "https://closerkit.netlify.app/",
+    size: "245MB",
+    date: "July 17",
+  },
+  {
+    id: 2,
     name: "terraria-crafting-tree",
     description: "Terraria Crafting Trees With Dynamic Items Mapping",
     tech: ["React", "Node.js", "React Router", "Tailwind CSS"],
@@ -10,7 +31,7 @@ module.exports = [
     date: "July 10",
   },
   {
-    id: 2,
+    id: 3,
     name: "weather-app",
     description: "Hourly, Daily and Current Weather with Open Mateo API",
     tech: ["React", "Tailwind CSS", "API"],
@@ -20,7 +41,7 @@ module.exports = [
     date: "June 27",
   },
   {
-    id: 3,
+    id: 4,
     name: "foreign-exchange-checker",
     description: "55 Currencies Dynamic Converter With Comparisons Logs",
     tech: ["React", "Tailwind CSS", "API"],
@@ -30,7 +51,7 @@ module.exports = [
     date: "July 7",
   },
   {
-    id: 4,
+    id: 5,
     name: "ip-address-tracker-with-leaflet.js",
     description: "IP Address Tracker With Map",
     tech: [
