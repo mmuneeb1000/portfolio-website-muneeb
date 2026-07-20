@@ -5,7 +5,7 @@ export default function Components() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://portfolio-website-muneeb.onrender.com/api/projects")
+    fetch("https://portfolio-website-muneeb.onrender.com/api/posts")
       .then((r) => r.json())
       .then((d) => {
         setProjects(d.data);
