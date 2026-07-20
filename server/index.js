@@ -30,7 +30,10 @@ app.post("/api/contact", (req, res) => {
 });
 
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", uptime: process.uptime().toFixed(2) + "s" });
+  res.json({
+    status: "NEW DEPLOY",
+    uptime: process.uptime().toFixed(2) + "s",
+  });
 });
 
 app.listen(PORT, () => {
