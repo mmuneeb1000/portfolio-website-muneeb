@@ -5,8 +5,10 @@ import Projects from "./components/Projects.jsx";
 import Components from "./components/Components.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import useTheme from "./hooks/useTheme.js";
 
 export default function App() {
+  const { theme, toggleTheme } = useTheme();
   return (
     <>
       <Navbar />
@@ -16,7 +18,7 @@ export default function App() {
         <Components />
         <Contact />
       </main>
-      <Footer />
+      <Footer theme={theme} toggleTheme={toggleTheme} />
     </>
   );
 }

@@ -16,6 +16,32 @@
 
   --font-mono: "JetBrains Mono", "Courier New", monospace;
 }
+:root {
+  --color-bg: #0d1117;
+  --color-surface: #161b22;
+  --color-surface2: #21262d;
+
+  --color-green: #00ff85;
+  --color-green-dim: #00cc6a;
+  --color-green-muted: #1a3d2e;
+
+  --color-text: #e6edf3;
+  --color-muted: #8b949e;
+  --color-border: #30363d;
+}
+[data-theme="light"] {
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-surface2: #f3f4f6;
+
+  --color-green: #15803d;
+  --color-green-dim: #166534;
+  --color-green-muted: #dcfce7;
+
+  --color-text: #111827;
+  --color-muted: #6b7280;
+  --color-border: #d1d5db;
+}
 @media (pointer: fine) {
   *,
   *::before,
@@ -42,7 +68,6 @@ body {
 }
 
 a {
-  color: var(--color-green);
   text-decoration: none;
   transition:
     color 150ms ease,
@@ -50,7 +75,7 @@ a {
 }
 
 a:hover {
-  color: #33ff9e;
+  text-decoration: underline;
 }
 
 /* Scrollbar */
@@ -228,4 +253,16 @@ a:hover {
   body {
     cursor: auto;
   }
+}
+
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    fill 250ms ease,
+    stroke 250ms ease,
+    box-shadow 250ms ease;
 }

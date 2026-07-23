@@ -1,83 +1,93 @@
-# Portfolio — React + Express + Node.js
+# Portfolio
 
-Terminal-style developer portfolio with a React frontend and Express API backend.
+A personal developer portfolio built with React and Vite, featuring a clean terminal-inspired interface that reflects a command line environment. The project highlights my work, reusable UI components, technical skills, and provides a simple way for visitors to get in touch.
+
+## Features
+
+- Terminal-inspired responsive interface
+- Project showcase with GitHub and live demo links
+- Components library displaying reusable UI elements
+- Smooth scrolling navigation
+- Custom animated cursor
+- Contact form powered by EmailJS
+- Reusable React component architecture
+- Built with modern React practices and hooks
+
+## Tech Stack
+
+- React
+- Vite
+- React Router
+- Tailwind CSS v4
+- EmailJS
+- React Icons
 
 ## Project Structure
 
 ```
-portfolio/
-├── server/
-│   └── index.js          # Express API (port 5000)
-├── client/
-│   ├── index.html
-│   ├── vite.config.js    # Proxies /api → Express
-│   └── src/
-│       ├── App.jsx
-│       ├── main.jsx
-│       ├── styles/
-│       │   └── global.css
-│       └── components/
-│           ├── Navbar.jsx
-│           ├── Hero.jsx      # Typewriter terminal animation
-│           ├── Projects.jsx  # ls -la style listing
-│           ├── Blog.jsx
-│           ├── Contact.jsx   # POSTs to /api/contact
-│           └── Footer.jsx
-└── package.json              # Root scripts
+src/
+├── components/
+├── pages/
+├── data/
+├── assets/
+├── hooks/
+├── styles/
+└── App.jsx
 ```
-
-## API Endpoints
-
-| Method | Route           | Description                  |
-|--------|-----------------|------------------------------|
-| GET    | /api/projects   | Returns project list         |
-| GET    | /api/posts      | Returns blog posts           |
-| POST   | /api/contact    | Accepts contact form payload |
-| GET    | /api/health     | Server health check          |
 
 ## Getting Started
 
-### 1. Install dependencies
+Clone the repository:
 
 ```bash
-# Install root + client deps
-npm run install:all
+git clone https://github.com/mmuneeb1000/portfolio.git
+cd portfolio
 ```
 
-Or manually:
+Install dependencies:
+
 ```bash
-npm install           # root (Express, cors)
-cd client && npm install  # React, Vite
+npm install
 ```
 
-### 2. Run in development
+Create a `.env` file in the project root:
+
+```env
+VITE_EMAILJS_SERVICE_ID=
+VITE_EMAILJS_TEMPLATE_ID=
+VITE_EMAILJS_PUBLIC_KEY=
+```
+
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-This starts both servers concurrently:
-- **React** on http://localhost:3000
-- **Express API** on http://localhost:5000
-
-Vite proxies all `/api` requests to Express automatically.
-
-### 3. Build for production
+Create a production build:
 
 ```bash
-cd client && npm run build
+npm run build
 ```
 
-Then serve the `client/dist` folder with Express by adding:
+Preview the production build locally:
 
-```js
-app.use(express.static(path.join(__dirname, "../client/dist")));
+```bash
+npm run preview
 ```
 
-## Customization
+## Contact Form
 
-1. **Your info** — update the `lines` array in `Hero.jsx`
-2. **Projects** — edit the `projects` array in `server/index.js`
-3. **Blog posts** — edit the `posts` array in `server/index.js`
-4. **Links** — update github/linkedin/twitter hrefs in `Contact.jsx` and `Navbar.jsx`
-5. **Colors** — all CSS variables are in `src/styles/global.css`
+The contact form uses EmailJS to send emails directly from the client. Configure your EmailJS Service ID, Template ID, and Public Key in the `.env` file before running the project.
+
+## Future Improvements
+
+- Blog integration
+- Internationalization
+- Project filtering and search
+- CMS integration
+- Animations with Framer Motion
+
+## License
+
+This project is open source and available under the MIT License.

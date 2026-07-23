@@ -26,7 +26,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[13px] text-muted transition-colors hover:text-green focus:text-green focus:outline-none"
+                className="text-[13px] text-text transition-colors hover:text-green focus:text-green focus:outline-none"
               >
                 {link.label}
               </a>
@@ -55,7 +55,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-sm text-muted transition-colors hover:text-green"
+              className="text-sm text-text transition-colors hover:text-green"
             >
               {link.label}
             </a>

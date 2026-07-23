@@ -23,7 +23,7 @@ export default function RepositoryCard({
               href={item.live}
               target="_blank"
               rel="noreferrer"
-              className="font-medium text-text text-right lg:text-left"
+              className="font-medium  text-text text-right lg:text-left"
             >
               {item.name}
               {directory && "/"}
@@ -41,7 +41,7 @@ export default function RepositoryCard({
         </div>
       </div>
 
-      <p className="mt-4 mb-3 text-[13px] text-white">
+      <p className="mt-4 mb-3 text-[13px] text-text">
         <span className="text-green"># </span>
         {item.description}
       </p>
