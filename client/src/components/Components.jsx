@@ -28,8 +28,7 @@ export default function Components() {
           {projects.map((p, i) => (
             <div
               key={p.id}
-              className="fade-in mb-4 rounded-md border border-border bg-surface p-4"
-              style={{ animationDelay: `${i * 80}ms` }}
+              className="mb-4 rounded-md border border-border bg-surface p-4"
             >
               <div className="grid gap-2 md:grid-cols-[60px_60px_1fr_120px] md:items-center md:gap-4">
                 <div className="flex items-center justify-between md:contents">
@@ -56,7 +55,7 @@ export default function Components() {
                 </div>
               </div>
 
-              <p className="mt-4 mb-3 text-[13px] text-muted">
+              <p className="mt-4 mb-3 text-[13px] text-white">
                 <span className="text-green"># </span>
                 {p.description}
               </p>
@@ -65,7 +64,7 @@ export default function Components() {
                 {p.tech.map((t) => (
                   <span
                     key={t}
-                    className="rounded border border-border bg-surface2 px-2 py-1 text-[11px] text-muted"
+                    className="rounded border border-border bg-green-muted text-green px-2 py-1 text-[11px]"
                   >
                     {t}
                   </span>

@@ -193,33 +193,6 @@ export default function Contact() {
             </p>
           )}
         </form>
-
-        <div className="mt-8 flex gap-6 border-t border-border pt-6">
-          {[
-            {
-              label: "github",
-              href: "https://github.com/mmuneeb1000",
-            },
-            {
-              label: "linkedin",
-              href: "https://www.linkedin.com/in/m-muneeb-a9984633b/",
-            },
-            {
-              label: "twitter",
-              href: "https://x.com/Kiwitourist",
-            },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-muted transition-colors hover:text-green focus:text-green focus:outline-none"
-            >
-              ./{link.label}
-            </a>
-          ))}
-        </div>
       </div>
     </section>
   );
