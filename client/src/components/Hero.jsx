@@ -1,17 +1,41 @@
 import React, { useState, useEffect } from "react";
 
 const lines = [
-  { prompt: "whoami", delay: 400, output: "m.muneeb" },
-  { prompt: "cat role.txt", delay: 1200, output: "frontend developer" },
   {
-    prompt: "cat stack.txt",
-    delay: 2000,
-    output: "React · TypeScript · Node.js · CSS",
+    prompt: "whoami",
+    delay: 400,
+    output: "M. Muneeb",
   },
   {
-    prompt: "uptime",
+    prompt: "cat role.txt",
+    delay: 1200,
+    output: "Frontend Developer building modern web applications",
+  },
+  {
+    prompt: "stack --current",
+    delay: 2000,
+    output:
+      "React • Next.js • Node.js • Express • MongoDB • Supabase • Tailwind CSS",
+  },
+  {
+    prompt: "tools --list",
     delay: 2800,
-    output: "3 years building things for the web",
+    output: "Vite • Git • REST APIs • OpenAI API • EmailJS • Figma",
+  },
+  {
+    prompt: "ls projects/",
+    delay: 3600,
+    output: "CloserKit  Frontpage  Portfolio  Weather  Currency  IP-Tracker",
+  },
+  {
+    prompt: "cat experience.md",
+    delay: 4400,
+    output: "5+ years building websites, dashboards and SaaS applications",
+  },
+  {
+    prompt: "echo $STATUS",
+    delay: 5200,
+    output: "Open to interesting projects and collaborations.",
   },
 ];
 
@@ -69,13 +93,21 @@ export default function Hero() {
 
   const skills = [
     "React",
-    "TypeScript",
     "Next.js",
-    "CSS / Tailwind",
-    "Vite",
+    "JavaScript",
+    "TypeScript",
     "Node.js",
+    "Express",
+    "MongoDB",
+    "Supabase",
+    "Tailwind CSS",
+    "Vite",
     "REST APIs",
+    "OpenAI API",
+    "WordPress",
     "Git",
+    "Figma",
+    "Responsive UI",
   ];
 
   return (
@@ -148,15 +180,11 @@ export default function Hero() {
         </div>
       </div>
 
-      <p
-        className="mt-10 text-xs text-muted"
-        style={{
-          animation: "blink 2s step-end infinite",
-        }}
-      >
-        scroll down or run
-        <span className="text-green"> ls projects/</span>
-      </p>
+      <div className="mt-10 text-xs">
+        <span className="text-green">muneeb@portfolio:~$ </span>
+        <span className="text-muted">ls projects/</span>
+        <span className="cursor" />
+      </div>
     </section>
   );
 }
