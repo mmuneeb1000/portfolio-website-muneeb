@@ -68,4 +68,14 @@ module.exports = [
     size: "62MB",
     date: "June 17",
   },
+  {
+    id: 6,
+    name: "typing-speed-test-dynamic",
+    description: "Typing Speed Test With Difficulty & Timed Mode",
+    tech: ["HTML", "CSS", "SCSS", "Javascript"],
+    github: "https://github.com/mmuneeb1000/typing-speed-test-dynamic",
+    live: "https://candid-biscochitos-9ae432.netlify.app/",
+    size: "62MB",
+    date: "June 17",
+  },
 ];
