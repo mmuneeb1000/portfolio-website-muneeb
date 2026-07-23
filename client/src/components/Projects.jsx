@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
-
+import projectsInfo from "../data/projects.json";
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://portfolio-website-muneeb.onrender.com/api/projects")
-      .then((r) => r.json())
-      .then((d) => {
-        setProjects(d.data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    setProjects(projectsInfo);
+    setLoading(false);
   }, []);
 
   return (

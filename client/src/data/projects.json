@@ -1,0 +1,81 @@
+[
+  {
+    "id": 1,
+    "name": "closer-kit-free-marketing-tool",
+    "description": "CloserKit - Leads & Proposals",
+    "tech": [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js",
+      "Tailwind CSS",
+      "React Router",
+      "OpenAI",
+      "Axios",
+      "cors",
+      "dotenv"
+    ],
+    "github": "https://github.com/mmuneeb1000/closerkit",
+    "live": "https://closerkit.netlify.app/",
+    "size": "245MB",
+    "date": "July 17"
+  },
+  {
+    "id": 2,
+    "name": "terraria-crafting-tree",
+    "description": "Terraria Crafting Trees With Dynamic Items Mapping",
+    "tech": ["React", "Node.js", "React Router", "Tailwind CSS"],
+    "github": "https://github.com/mmuneeb1000/terraria-crafting-tree",
+    "live": "https://playful-praline-5ad535.netlify.app/",
+    "size": "260MB",
+    "date": "July 10"
+  },
+  {
+    "id": 3,
+    "name": "weather-app",
+    "description": "Hourly, Daily and Current Weather with Open-Meteo API",
+    "tech": ["React", "Tailwind CSS", "API"],
+    "github": "https://github.com/mmuneeb1000/weather-app-main",
+    "live": "https://weather-app-open-mateo-fm.netlify.app/",
+    "size": "82MB",
+    "date": "June 27"
+  },
+  {
+    "id": 4,
+    "name": "foreign-exchange-checker",
+    "description": "55 Currencies Dynamic Converter With Comparison Logs",
+    "tech": ["React", "Tailwind CSS", "API"],
+    "github": "https://github.com/mmuneeb1000/foreign-exchange-checker",
+    "live": "https://currency-converter-app-frankfurter.netlify.app/",
+    "size": "112MB",
+    "date": "July 7"
+  },
+  {
+    "id": 5,
+    "name": "ip-address-tracker-with-leaflet.js",
+    "description": "IP Address Tracker With Map",
+    "tech": [
+      "Leaflet.js",
+      "Node.js",
+      "SCSS",
+      "Express",
+      "Axios",
+      "cors",
+      "dotenv"
+    ],
+    "github": "https://github.com/mmuneeb1000/ip-address-tracker-with-leafletjs",
+    "live": "https://stunning-toffee-e1de3d.netlify.app/",
+    "size": "62MB",
+    "date": "June 17"
+  },
+  {
+    "id": 6,
+    "name": "typing-speed-test-dynamic",
+    "description": "Typing Speed Test With Difficulty & Timed Mode",
+    "tech": ["HTML5", "CSS3", "SCSS", "JavaScript"],
+    "github": "https://github.com/mmuneeb1000/typing-speed-test-dynamic",
+    "live": "https://candid-biscochitos-9ae432.netlify.app/",
+    "size": "10MB",
+    "date": "June 15"
+  }
+]

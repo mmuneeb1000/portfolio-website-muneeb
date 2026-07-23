@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
+import componentsInfo from "../data/components.json";
 
 export default function Components() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://portfolio-website-muneeb.onrender.com/api/posts")
-      .then((r) => r.json())
-      .then((d) => {
-        setProjects(d.data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    setProjects(componentsInfo);
+    setLoading(false);
   }, []);
 
   return (
