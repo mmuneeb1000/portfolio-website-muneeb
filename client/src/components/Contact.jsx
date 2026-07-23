@@ -75,7 +75,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="mx-auto w-full max-w-5xl px-6 py-20"
+      className="mx-auto w-full max-w-5xl py-4"
       aria-labelledby="contact-heading"
     >
       <div className="rounded-xl border border-border bg-surface p-8">

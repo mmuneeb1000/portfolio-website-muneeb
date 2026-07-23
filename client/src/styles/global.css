@@ -132,7 +132,3 @@ a:hover {
     transform: translateY(0);
   }
 }
-
-.fade-in {
-  animation: fadeUp 0.5s ease forwards;
-}

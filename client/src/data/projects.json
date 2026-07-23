@@ -32,16 +32,6 @@
   },
   {
     "id": 3,
-    "name": "weather-app",
-    "description": "Hourly, Daily and Current Weather with Open-Meteo API",
-    "tech": ["React", "Tailwind CSS", "API"],
-    "github": "https://github.com/mmuneeb1000/weather-app-main",
-    "live": "https://weather-app-open-mateo-fm.netlify.app/",
-    "size": "82MB",
-    "date": "June 27"
-  },
-  {
-    "id": 4,
     "name": "foreign-exchange-checker",
     "description": "55 Currencies Dynamic Converter With Comparison Logs",
     "tech": ["React", "Tailwind CSS", "API"],
@@ -49,6 +39,16 @@
     "live": "https://currency-converter-app-frankfurter.netlify.app/",
     "size": "112MB",
     "date": "July 7"
+  },
+  {
+    "id": 4,
+    "name": "weather-app-with-open-meteo",
+    "description": "Hourly, Daily and Current Weather with Open-Meteo API",
+    "tech": ["React", "Tailwind CSS", "API"],
+    "github": "https://github.com/mmuneeb1000/weather-app-main",
+    "live": "https://weather-app-open-mateo-fm.netlify.app/",
+    "size": "82MB",
+    "date": "June 27"
   },
   {
     "id": 5,

@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 11,
     "name": "business-card-with-react",
     "description": "Business Card",
     "tech": ["React"],
@@ -10,7 +10,7 @@
     "date": "June 19"
   },
   {
-    "id": 2,
+    "id": 12,
     "name": "hotel-booking-confirmation",
     "description": "Booking Confirmation UI",
     "tech": ["React", "Vite", "Tailwind CSS"],
@@ -20,7 +20,7 @@
     "date": "June 30"
   },
   {
-    "id": 3,
+    "id": 13,
     "name": "bento-grid-responsive",
     "description": "Bento Grid",
     "tech": ["React", "Tailwind CSS"],
@@ -30,7 +30,7 @@
     "date": "July 17"
   },
   {
-    "id": 4,
+    "id": 14,
     "name": "space-tourism-site",
     "description": "Space Tourism Website",
     "tech": ["React", "Tailwind CSS", "React Router"],
@@ -40,7 +40,7 @@
     "date": "July 17"
   },
   {
-    "id": 5,
+    "id": 15,
     "name": "assembly-endgame-scrimba",
     "description": "Assembly: Endgame",
     "tech": ["React", "Tailwind CSS"],
@@ -50,7 +50,7 @@
     "date": "July 9"
   },
   {
-    "id": 6,
+    "id": 16,
     "name": "launch-countdown-timer-dynamic",
     "description": "Launch Countdown Timer Solution",
     "tech": ["React", "Vite", "CSS3"],
@@ -60,7 +60,7 @@
     "date": "June 21"
   },
   {
-    "id": 7,
+    "id": 17,
     "name": "ecommerce-product-page",
     "description": "E-commerce Product Page With Cart",
     "tech": ["HTML5", "SCSS", "CSS3", "JavaScript"],
@@ -70,7 +70,7 @@
     "date": "June 10"
   },
   {
-    "id": 8,
+    "id": 18,
     "name": "social-media-dashboard-with-dark-mode",
     "description": "Social Media Dashboard with Dark Mode Toggle",
     "tech": ["HTML5", "SCSS", "CSS3", "JavaScript"],
