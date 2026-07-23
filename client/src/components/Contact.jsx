@@ -109,7 +109,9 @@ export default function Contact() {
               onChange={handleChange}
               placeholder="Your name"
               aria-invalid={status === "error" && !form.name.trim()}
-              className="w-full rounded-md border border-border bg-surface px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-md border border-border bg-surface hover:border-green
+              px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors 
+              focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
             />
           </div>
 
@@ -132,7 +134,9 @@ export default function Contact() {
                 status === "error" &&
                 (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email))
               }
-              className="w-full rounded-md border border-border bg-surface px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-md border border-border bg-surface hover:border-green
+              px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors 
+              focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
             />
           </div>
 
@@ -154,14 +158,18 @@ export default function Contact() {
               onChange={handleChange}
               placeholder="What's on your mind?"
               aria-invalid={status === "error" && !form.message.trim()}
-              className="w-full resize-y rounded-md border border-border bg-surface px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full resize-y rounded-md border border-border bg-surface hover:border-green
+              px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors
+               focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
             />
           </div>
 
           <button
             type="submit"
             disabled={status === "sending"}
-            className="flex items-center gap-2 rounded-md border border-green px-6 py-[10px] text-[13px] text-green transition-all hover:bg-green hover:text-bg disabled:cursor-not-allowed disabled:opacity-60"
+            className="flex items-center gap-2 rounded-md border border-green px-6 
+            py-[10px] text-[13px] text-green transition-all hover:bg-surface2 
+            hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
           >
             {status === "sending" ? (
               <>

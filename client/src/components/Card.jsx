@@ -5,7 +5,7 @@ export default function RepositoryCard({
   showGithub = true,
 }) {
   return (
-    <div className="mb-4 rounded-md border border-border bg-surface p-4">
+    <div className="repo-card mb-4 rounded-md border border-border bg-surface p-4">
       <div className="grid gap-2 md:grid-cols-[60px_60px_1fr_120px] md:items-center md:gap-4">
         <div className="flex items-center justify-between md:contents">
           <span className="text-xs text-green">
@@ -47,11 +47,11 @@ export default function RepositoryCard({
       </p>
 
       {item.tech?.length > 0 && (
-        <div className="mb-4 flex flex-wrap gap-2">
+        <div className=" mb-4 flex flex-wrap gap-2">
           {item.tech.map((tech) => (
             <span
               key={tech}
-              className="rounded border border-border bg-green-muted px-2 py-1 text-[11px] text-green"
+              className="tech-pill rounded border border-border bg-green-muted px-2 py-1 text-[11px] text-green"
             >
               {tech}
             </span>

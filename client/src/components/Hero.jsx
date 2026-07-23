@@ -140,7 +140,7 @@ export default function Hero() {
           {skills.map((skill) => (
             <span
               key={skill}
-              className="rounded border px-3 py-1 text-xs bg-green-muted text-green border-[#004d2e]"
+              className="tech-pill rounded border px-3 py-1 text-xs bg-green-muted text-green border-[#004d2e]"
             >
               {skill}
             </span>
