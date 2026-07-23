@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/90 px-6 py-4 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between">
+      <div className="mx-auto flex  items-center justify-between">
         <a
           href="#"
           className="font-mono text-sm text-text transition-colors hover:text-green"
