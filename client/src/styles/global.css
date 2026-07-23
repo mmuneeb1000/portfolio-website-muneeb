@@ -16,7 +16,13 @@
 
   --font-mono: "JetBrains Mono", "Courier New", monospace;
 }
-
+@media (pointer: fine) {
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+}
 html {
   scroll-behavior: smooth;
 }
@@ -173,9 +179,6 @@ a:hover {
   transform: translateY(-1px);
   border-color: var(--color-green);
 }
-body {
-  cursor: none;
-}
 
 .cursor-dot {
   position: fixed;
@@ -204,4 +207,25 @@ body {
     border-radius 0.2s,
     border-color 0.2s;
   z-index: 9998;
+}
+.cursor-hover {
+  width: 52px;
+  height: 52px;
+  border-color: white;
+}
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+
+  body {
+    cursor: auto;
+  }
 }
