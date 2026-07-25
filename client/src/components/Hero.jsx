@@ -25,7 +25,8 @@ const lines = [
   {
     prompt: "ls projects/",
     delay: 3600,
-    output: "CloserKit  Frontpage  Portfolio  Weather  Currency  IP-Tracker",
+    output:
+      "CloserKit • Frontpage • Portfolio • Weather • Currency • IP-Tracker",
   },
   {
     prompt: "cat experience.md",
@@ -146,7 +147,7 @@ export default function Hero() {
               </div>
 
               {line.showOutput && (
-                <div className="mb-2 text-text">{line.output}</div>
+                <div className="mb-2 text-text text-[14px]">{line.output}</div>
               )}
             </div>
           ))}
