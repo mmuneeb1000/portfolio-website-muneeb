@@ -128,7 +128,7 @@ export default function Hero() {
           </span>
         </div>
 
-        <div className="min-h-[200px] p-6 md:px-7">
+        <div className="min-h-[300px] p-4 md:p-6 md:px-7">
           {visibleLines.map((line, i) => (
             <div key={i} className="mb-1">
               <div>
