@@ -1,5 +1,15 @@
 [
   {
+    "id": 19,
+    "name": "calculator-app-dynamic",
+    "description": "Calculator App With Dynamic Themes",
+    "tech": ["React", "Vite", "Tailwind CSS"],
+    "github": "https://github.com/mmuneeb1000/calculator-app-dynamic",
+    "live": "https://glittering-moxie-2c683e.netlify.app/",
+    "size": "114MB",
+    "date": "July 27"
+  },
+  {
     "id": 11,
     "name": "business-card-with-react",
     "description": "Business Card",

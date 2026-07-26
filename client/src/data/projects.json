@@ -1,5 +1,26 @@
 [
   {
+    "id": 7,
+    "name": "frontpage-rss-feed-reader",
+    "description": "Frontpage - RSS Feed Reader App",
+    "tech": [
+      "Supabase",
+      "Express",
+      "React",
+      "Node.js",
+      "Tailwind CSS",
+      "React Router",
+      "OpenAI",
+      "Axios",
+      "cors",
+      "dotenv"
+    ],
+    "github": "https://app.netlify.com/projects/frontpage-feed-reader-rss/overview",
+    "live": "https://frontpage-feed-reader-rss.netlify.app/",
+    "size": "250MB",
+    "date": "July 27"
+  },
+  {
     "id": 1,
     "name": "closer-kit-free-marketing-tool",
     "description": "CloserKit - Leads & Proposals",
