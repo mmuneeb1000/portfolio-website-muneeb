@@ -11,7 +11,7 @@ export default function Websites() {
   }, []);
 
   return (
-    <section id="projects" className="my-8">
+    <section id="websites" className="my-8">
       <h2 className="mb-6">~/websites</h2>
 
       {loading ? (
