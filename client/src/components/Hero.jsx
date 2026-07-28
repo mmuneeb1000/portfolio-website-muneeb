@@ -93,6 +93,8 @@ export default function Hero() {
   };
 
   const skills = [
+    "Wordpress",
+    "PHP",
     "React",
     "Next.js",
     "JavaScript",
