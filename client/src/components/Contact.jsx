@@ -75,15 +75,15 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="mx-auto w-full max-w-5xl py-4"
+      className="mx-auto w-full max-w-5xl py-3"
       aria-labelledby="contact-heading"
     >
-      <div className="rounded-xl border border-border bg-surface p-8">
+      <div className="rounded-xl border border-border bg-surface p-6">
         <h2 id="contact-heading" className="mb-2 text-3xl font-bold text-text">
           Contact
         </h2>
 
-        <p className="mb-8 text-sm text-muted">
+        <p className="mb-6 text-sm text-muted">
           Open to freelance, full-time roles, or just a good chat about web
           development.
         </p>
@@ -140,7 +140,7 @@ export default function Contact() {
             />
           </div>
 
-          <div className="mb-6">
+          <div className="mb-4">
             <label
               htmlFor="message"
               className="mb-1.5 block text-xs text-muted"

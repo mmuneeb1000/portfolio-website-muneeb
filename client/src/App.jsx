@@ -15,10 +15,10 @@ export default function App() {
       <Navbar />
       <main className="mx-auto px-6 py-4 md:py-10 lg:w-220">
         <Hero />
+        <Contact />
         <Projects />
         <Websites />
         <Components />
-        <Contact />
       </main>
       <Footer theme={theme} toggleTheme={toggleTheme} />
     </>

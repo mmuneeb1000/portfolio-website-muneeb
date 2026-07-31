@@ -47,7 +47,7 @@
     "description": "Terraria Crafting Trees With Dynamic Items Mapping",
     "tech": ["React", "Node.js", "React Router", "Tailwind CSS"],
     "github": "https://github.com/mmuneeb1000/terraria-crafting-tree",
-    "live": "https://playful-praline-5ad535.netlify.app/",
+    "live": "https://terraria-tree.netlify.app/",
     "size": "260MB",
     "date": "July 10"
   },

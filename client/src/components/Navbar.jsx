@@ -2,10 +2,10 @@ import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const links = [
+  { label: "~/contact", href: "#contact" },
   { label: "~/projects", href: "#projects" },
   { label: "~/websites", href: "#websites" },
   { label: "~/components", href: "#components" },
-  { label: "~/contact", href: "#contact" },
 ];
 
 export default function Navbar() {
