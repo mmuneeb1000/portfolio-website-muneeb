@@ -17,7 +17,6 @@ A personal developer portfolio built with React and Vite, featuring a clean term
 
 - React
 - Vite
-- React Router
 - Tailwind CSS v4
 - EmailJS
 - React Icons
