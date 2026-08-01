@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import siteLogo from "/sitelogo.png";
 
 const links = [
   { label: "~/contact", href: "#contact" },
@@ -14,13 +15,15 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/90 px-6 py-4 backdrop-blur">
       <div className="mx-auto flex  items-center justify-between">
-        <a
-          href="#"
-          className="font-mono text-sm text-text transition-colors hover:text-green"
-        >
-          webdevpk@store:~$
-        </a>
-
+        <div className="flex gap-4 items-center">
+          <img src={siteLogo} className="w-14 h-14 rounded-xl" />
+          <a
+            href="#"
+            className="font-mono text-base text-text transition-colors hover:text-green"
+          >
+            webdevpk@store:~$
+          </a>
+        </div>
         <nav aria-label="Primary navigation">
           <div className="hidden items-center gap-5 md:flex">
             {links.map((link) => (

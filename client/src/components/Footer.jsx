@@ -19,7 +19,7 @@ export default function Footer({ theme, toggleTheme }) {
   return (
     <footer
       className="flex flex-col gap-4 items-center lg:flex-row lg:justify-between 
-      border-t border-muted px-6 py-6 text-center text-xs text-text"
+      border-t border-border px-6 py-6 text-center text-xs text-text"
     >
       <div className="flex justify-center gap-6">
         {links.map((link) => (
