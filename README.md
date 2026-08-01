@@ -2,6 +2,8 @@
 
 A personal developer portfolio built with React and Vite, featuring a clean terminal-inspired interface that reflects a command line environment. The project highlights my work, reusable UI components, technical skills, and provides a simple way for visitors to get in touch.
 
+Live Site: https://webdevpk.store
+
 ## Features
 
 - Terminal-inspired responsive interface
