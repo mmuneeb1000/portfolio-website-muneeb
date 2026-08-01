@@ -182,7 +182,7 @@ export default function Hero() {
       </div>
 
       <div className="mt-10 text-xs">
-        <span className="text-green">muneeb@portfolio:~$ </span>
+        <span className="text-green">webdevpk@store:~$ </span>
         <span className="text-muted">ls projects/</span>
         <span className="cursor" />
       </div>
