@@ -15,7 +15,7 @@
       "cors",
       "dotenv"
     ],
-    "github": "https://app.netlify.com/projects/frontpage-feed-reader-rss/overview",
+    "github": "https://github.com/mmuneeb1000/frontpage-feed-reader-rss",
     "live": "https://frontpage-feed-reader-rss.netlify.app/",
     "size": "250MB",
     "date": "July 27"
