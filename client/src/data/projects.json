@@ -55,7 +55,7 @@
     "id": 3,
     "name": "foreign-exchange-checker",
     "description": "55 Currencies Dynamic Converter With Comparison Logs",
-    "tech": ["React", "Tailwind CSS", "API"],
+    "tech": ["React", "Tailwind CSS", "Express", "API", "ReCharts"],
     "github": "https://github.com/mmuneeb1000/foreign-exchange-checker",
     "live": "https://currency-converter-app-frankfurter.netlify.app/",
     "size": "112MB",
