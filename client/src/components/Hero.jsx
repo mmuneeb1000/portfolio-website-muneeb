@@ -135,7 +135,7 @@ export default function Hero() {
             <div key={i} className="mb-1">
               <div>
                 <span className="select-none text-green">
-                  muneeb@portfolio:~${" "}
+                  webdevpk@store:~${" "}
                 </span>
 
                 {line.typing ? (
@@ -156,9 +156,7 @@ export default function Hero() {
 
           {typingIndex >= lines.length && (
             <div>
-              <span className="select-none text-green">
-                muneeb@portfolio:~${" "}
-              </span>
+              <span className="select-none text-green">webdevpk@store:~$ </span>
               <span className="cursor" />
             </div>
           )}

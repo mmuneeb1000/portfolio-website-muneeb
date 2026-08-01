@@ -18,7 +18,7 @@ export default function Navbar() {
           href="#"
           className="font-mono text-sm text-text transition-colors hover:text-green"
         >
-          muneeb@portfolio:~$
+          webdevpk@store:~$
         </a>
 
         <nav aria-label="Primary navigation">
