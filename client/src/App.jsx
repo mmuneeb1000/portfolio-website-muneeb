@@ -14,25 +14,25 @@ export default function App() {
   return (
     <>
       <Navbar />
+      <main className="mx-4 my-6 lg:mx-auto lg:w-280">
+        <Hero />
+        <Contact />
+        <div
+          className="relative overflow-hidden rounded-3xl p-4 lg:px-10 
+          border border-border bg-emerald-950/30  
+         [html[data-theme='light']_&]:bg-emerald-50/60 "
+        >
+          {/* Grain */}
+          <div className="pointer-events-none absolute inset-0 opacity-[0.045] noise" />
 
-      <main
-        className="relative overflow-hidden rounded-3xl border border-emerald-900/20
-        bg-emerald-950/30 mx-4 my-6 p-4 lg:px-10 lg:mx-auto lg:w-240 [html[data-theme='light']_&]:border-emerald-900/10
-    [html[data-theme='light']_&]:bg-emerald-50/60 "
-      >
-        {/* Grain */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.045] noise" />
-
-        {/* Content */}
-        <div className="relative z-10">
-          <Hero />
-          <Contact />
-          <Websites />
-          <Projects />
-          <Components />
+          {/* Content */}
+          <div className="relative z-10">
+            <Websites />
+            <Projects />
+            <Components />
+          </div>
         </div>
       </main>
-
       <Footer theme={theme} toggleTheme={toggleTheme} />
     </>
   );

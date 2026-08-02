@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FiSend, FiCheck, FiLoader } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 
@@ -12,6 +12,8 @@ export default function Contact() {
   const [status, setStatus] = useState(null);
   const [errMsg, setErrMsg] = useState("");
 
+  const textareaRef = useRef(null);
+
   const handleChange = (e) => {
     setForm((prev) => ({
       ...prev,
@@ -21,6 +23,25 @@ export default function Contact() {
     if (status === "error") {
       setStatus(null);
       setErrMsg("");
+    }
+
+    if (e.target.name === "message") {
+      const textarea = e.target;
+
+      textarea.style.height = "auto";
+
+      const lineHeight = parseFloat(getComputedStyle(textarea).lineHeight);
+
+      const minHeight = lineHeight * 2;
+      const maxHeight = lineHeight * 5;
+
+      textarea.style.height = `${Math.min(
+        Math.max(textarea.scrollHeight, minHeight),
+        maxHeight,
+      )}px`;
+
+      textarea.style.overflowY =
+        textarea.scrollHeight > maxHeight ? "auto" : "hidden";
     }
   };
 
@@ -62,6 +83,11 @@ export default function Contact() {
         message: "",
       });
 
+      if (textareaRef.current) {
+        textareaRef.current.style.height = "";
+        textareaRef.current.style.overflowY = "hidden";
+      }
+
       setTimeout(() => {
         setStatus(null);
       }, 3000);
@@ -75,10 +101,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="mx-auto w-full max-w-5xl py-3"
+      className="mx-auto w-full max-w-5xl py-6"
       aria-labelledby="contact-heading"
     >
-      <div className="rounded-xl border border-border bg-surface p-6">
+      <div className="rounded-xl border border-border bg-surface p-4">
         <h2 id="contact-heading" className="mb-2 text-3xl font-bold text-text">
           Contact
         </h2>
@@ -93,51 +119,52 @@ export default function Contact() {
           noValidate
           aria-busy={status === "sending"}
         >
-          <div className="mb-4">
-            <label htmlFor="name" className="mb-1.5 block text-xs text-muted">
-              --name
-            </label>
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-5">
+            <div className="mb-4">
+              <label htmlFor="name" className="mb-1.5 block text-xs text-muted">
+                --name
+              </label>
 
-            <input
-              id="name"
-              name="name"
-              type="text"
-              autoComplete="name"
-              required
-              disabled={status === "sending"}
-              value={form.name}
-              onChange={handleChange}
-              placeholder="Your name"
-              aria-invalid={status === "error" && !form.name.trim()}
-              className="w-full rounded-md border border-border bg-surface hover:border-green
-              px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors 
-              focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
-            />
-          </div>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                required
+                disabled={status === "sending"}
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                aria-invalid={status === "error" && !form.name.trim()}
+                className="w-full rounded-md border border-border bg-surface px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors hover:border-green focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
+              />
+            </div>
 
-          <div className="mb-4">
-            <label htmlFor="email" className="mb-1.5 block text-xs text-muted">
-              --email
-            </label>
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="mb-1.5 block text-xs text-muted"
+              >
+                --email
+              </label>
 
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              disabled={status === "sending"}
-              value={form.email}
-              onChange={handleChange}
-              placeholder="you@example.com"
-              aria-invalid={
-                status === "error" &&
-                (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email))
-              }
-              className="w-full rounded-md border border-border bg-surface hover:border-green
-              px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors 
-              focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
-            />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                disabled={status === "sending"}
+                value={form.email}
+                onChange={handleChange}
+                placeholder="you@example.com"
+                aria-invalid={
+                  status === "error" &&
+                  (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email))
+                }
+                className="w-full rounded-md border border-border bg-surface px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors hover:border-green focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
+              />
+            </div>
           </div>
 
           <div className="mb-4">
@@ -149,27 +176,24 @@ export default function Contact() {
             </label>
 
             <textarea
+              ref={textareaRef}
               id="message"
               name="message"
-              rows={5}
+              rows={2}
               required
               disabled={status === "sending"}
               value={form.message}
               onChange={handleChange}
               placeholder="What's on your mind?"
               aria-invalid={status === "error" && !form.message.trim()}
-              className="w-full resize-y rounded-md border border-border bg-surface hover:border-green
-              px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors
-               focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full resize-none overflow-y-hidden rounded-md border border-border bg-surface px-[14px] py-[10px] text-[13px] leading-5 text-text outline-none transition-colors hover:border-green focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
             />
           </div>
 
           <button
             type="submit"
             disabled={status === "sending"}
-            className="flex items-center gap-2 rounded-md border border-green px-6 
-            py-[10px] text-[13px] text-green transition-all hover:bg-surface2 
-            hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+            className="flex items-center gap-2 rounded-md border border-green px-6 py-[10px] text-[13px] text-green transition-all hover:bg-surface2 hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
           >
             {status === "sending" ? (
               <>

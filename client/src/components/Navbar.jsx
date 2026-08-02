@@ -13,7 +13,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-bg/90 px-6 py-4 backdrop-blur">
+    <header className="border-b border-border bg-bg/90 px-6 py-4 backdrop-blur">
       <div className="mx-auto flex  items-center justify-between">
         <div className="flex gap-4 items-center">
           <img src={siteLogo} className="w-14 h-14 rounded-xl" />

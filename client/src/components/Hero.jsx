@@ -93,7 +93,7 @@ export default function Hero() {
   };
 
   const skills = [
-    "Wordpress",
+    "WordPress",
     "PHP",
     "React",
     "Next.js",
@@ -107,84 +107,143 @@ export default function Hero() {
     "Vite",
     "REST APIs",
     "OpenAI API",
-    "WordPress",
     "Git",
     "Figma",
     "Responsive UI",
   ];
 
   return (
-    <section className="py-4">
-      <div className="mb-12 overflow-hidden rounded-[10px] border border-border bg-surface">
-        <div className="flex items-center gap-2 border-b bg-surface2 border-border px-4 py-2.5">
-          {["#ff5f57", "#ffbd2e", "#28ca41"].map((c) => (
-            <span
-              key={c}
-              className="h-3 w-3 rounded-full"
-              style={{ background: c }}
-            />
-          ))}
+    <section className="flex min-h-[calc(100vh-5rem)] items-center py-12">
+      <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        {/* LEFT: PROFILE */}
+        <div>
+          <p className="mb-4 font-mono text-sm text-green">
+            <span className="text-muted">~/</span>portfolio
+          </p>
 
-          <span className="ml-2 text-xs text-muted">
-            portfolio — zsh — 80×24
-          </span>
+          <h1 className="text-5xl font-bold tracking-tight text-text md:text-6xl">
+            M. Muneeb
+          </h1>
+
+          <p className="mt-4 text-xl text-green">Frontend Developer</p>
+
+          <p className="mt-6 max-w-xl text-base leading-7 text-muted">
+            I build modern web applications, responsive interfaces, dashboards,
+            and SaaS products using modern JavaScript technologies.
+          </p>
+
+          <div className="mt-8 flex gap-3">
+            <a
+              href="#projects"
+              className="rounded border border-green bg-green px-4 py-2 text-sm text-surface"
+            >
+              View Projects
+            </a>
+
+            <a
+              href="#contact"
+              className="rounded border border-border px-4 py-2 text-sm text-text transition hover:border-green hover:text-green"
+            >
+              Contact Me
+            </a>
+          </div>
+
+          <div className="mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-6">
+            <div>
+              <p className="text-2xl font-semibold text-text">5+</p>
+              <p className="mt-1 text-xs text-muted">Years Experience</p>
+            </div>
+
+            <div>
+              <p className="text-2xl font-semibold text-text">20+</p>
+              <p className="mt-1 text-xs text-muted">Projects</p>
+            </div>
+
+            <div>
+              <p className="text-2xl font-semibold text-text">∞</p>
+              <p className="mt-1 text-xs text-muted">Things to Build</p>
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <p className="mb-3 text-xs text-muted">
+              <span className="text-green"># </span>
+              skills /
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="tech-pill rounded border px-3 py-1 text-xs bg-green-muted text-green border-[#004d2e]"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="min-h-[300px] p-4 md:p-6 md:px-7">
-          {visibleLines.map((line, i) => (
-            <div key={i} className="mb-1">
-              <div>
-                <span className="select-none text-green">
-                  webdevpk@store:~${" "}
-                </span>
+        {/* RIGHT: TERMINAL */}
+        <div>
+          <div className="overflow-hidden rounded-[10px] border border-border bg-surface">
+            <div className="flex items-center gap-2 border-b border-border bg-surface2 px-4 py-2.5">
+              {["#ff5f57", "#ffbd2e", "#28ca41"].map((c) => (
+                <span
+                  key={c}
+                  className="h-3 w-3 rounded-full"
+                  style={{ background: c }}
+                />
+              ))}
 
-                {line.typing ? (
-                  <TypedLine
-                    text={line.prompt}
-                    onDone={() => handlePromptDone(i)}
-                  />
-                ) : (
-                  <span>{line.prompt}</span>
-                )}
-              </div>
+              <span className="ml-2 text-xs text-muted">
+                portfolio — zsh — 80×24
+              </span>
+            </div>
 
-              {line.showOutput && (
-                <div className="mb-2 text-text text-[14px]">{line.output}</div>
+            <div className="min-h-[300px] p-4 md:p-6 md:px-7">
+              {visibleLines.map((line, i) => (
+                <div key={i} className="mb-1">
+                  <div>
+                    <span className="select-none text-green">
+                      webdevpk@store:~${" "}
+                    </span>
+
+                    {line.typing ? (
+                      <TypedLine
+                        text={line.prompt}
+                        onDone={() => handlePromptDone(i)}
+                      />
+                    ) : (
+                      <span>{line.prompt}</span>
+                    )}
+                  </div>
+
+                  {line.showOutput && (
+                    <div className="mb-2 text-text text-[14px]">
+                      {line.output}
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {typingIndex >= lines.length && (
+                <div>
+                  <span className="select-none text-green">
+                    webdevpk@store:~${" "}
+                  </span>
+                  <span className="cursor" />
+                </div>
               )}
             </div>
-          ))}
+          </div>
 
-          {typingIndex >= lines.length && (
-            <div>
-              <span className="select-none text-green">webdevpk@store:~$ </span>
-              <span className="cursor" />
-            </div>
-          )}
+          <div className="mt-6 text-xs">
+            <span className="text-green">webdevpk@store:~$ </span>
+            <span className="text-muted">ls projects/</span>
+            <span className="cursor" />
+          </div>
         </div>
-      </div>
-
-      <div>
-        <p className="mb-3.5 text-xs text-muted">
-          <span className="text-green"># </span>
-          skills /
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-2.5">
-          {skills.map((skill) => (
-            <span
-              key={skill}
-              className="tech-pill rounded border px-3 py-1 text-xs bg-green-muted text-green border-[#004d2e]"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-10 text-xs">
-        <span className="text-green">webdevpk@store:~$ </span>
-        <span className="text-muted">ls projects/</span>
-        <span className="cursor" />
       </div>
     </section>
   );
