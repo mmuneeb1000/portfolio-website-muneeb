@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { motion } from "motion/react";
 import { FiSend, FiCheck, FiLoader } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 
@@ -98,28 +99,64 @@ export default function Contact() {
     }
   };
 
-  return (
-    <section
-      id="contact"
-      className="mx-auto w-full max-w-5xl py-6"
-      aria-labelledby="contact-heading"
-    >
-      <div className="rounded-xl border border-border bg-surface p-4">
-        <h2 id="contact-heading" className="mb-2 text-3xl font-bold text-text">
-          Contact
-        </h2>
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-        <p className="mb-6 text-sm text-muted">
+  const revealVariants = {
+    hidden: {
+      opacity: 0,
+      y: 24,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  return (
+    <section id="contact" className="px-6 py-12 md:px-10 lg:py-16">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{
+          once: true,
+          amount: 0.25,
+        }}
+        className="mx-auto max-w-3xl"
+      >
+        <motion.h2
+          variants={revealVariants}
+          className="mb-4 text-3xl font-semibold text-text"
+        >
+          Contact
+        </motion.h2>
+
+        <motion.p variants={revealVariants} className="mb-6 text-sm text-muted">
           Open to freelance, full-time roles, or just a good chat about web
           development.
-        </p>
+        </motion.p>
 
-        <form
+        <motion.form
+          variants={containerVariants}
           onSubmit={handleSubmit}
           noValidate
           aria-busy={status === "sending"}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-5">
+          <motion.div
+            variants={revealVariants}
+            className="grid grid-cols-1 md:grid-cols-2 md:gap-5"
+          >
             <div className="mb-4">
               <label htmlFor="name" className="mb-1.5 block text-xs text-muted">
                 --name
@@ -165,9 +202,9 @@ export default function Contact() {
                 className="w-full rounded-md border border-border bg-surface px-[14px] py-[10px] text-[13px] text-text outline-none transition-colors hover:border-green focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
               />
             </div>
-          </div>
+          </motion.div>
 
-          <div className="mb-4">
+          <motion.div variants={revealVariants} className="mb-4">
             <label
               htmlFor="message"
               className="mb-1.5 block text-xs text-muted"
@@ -188,44 +225,82 @@ export default function Contact() {
               aria-invalid={status === "error" && !form.message.trim()}
               className="w-full resize-none overflow-y-hidden rounded-md border border-border bg-surface px-[14px] py-[10px] text-[13px] leading-5 text-text outline-none transition-colors hover:border-green focus:border-green disabled:cursor-not-allowed disabled:opacity-60"
             />
-          </div>
+          </motion.div>
 
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="flex items-center gap-2 rounded-md border border-green px-6 py-[10px] text-[13px] text-green transition-all hover:bg-surface2 hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {status === "sending" ? (
-              <>
-                <FiLoader className="animate-spin" />
-                Sending...
-              </>
-            ) : status === "ok" ? (
-              <>
-                <FiCheck />
-                Message sent
-              </>
-            ) : (
-              <>
-                <FiSend />
-                Send message
-              </>
-            )}
-          </button>
+          <motion.div variants={revealVariants}>
+            <motion.button
+              type="submit"
+              disabled={status === "sending"}
+              whileHover={
+                status !== "sending"
+                  ? {
+                      y: -2,
+                    }
+                  : undefined
+              }
+              whileTap={
+                status !== "sending"
+                  ? {
+                      scale: 0.97,
+                    }
+                  : undefined
+              }
+              className="flex items-center gap-2 rounded-md border border-green px-6 py-[10px] text-[13px] text-green transition-colors hover:bg-surface2 hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {status === "sending" ? (
+                <>
+                  <FiLoader className="animate-spin" />
+                  Sending...
+                </>
+              ) : status === "ok" ? (
+                <>
+                  <FiCheck />
+                  Message sent
+                </>
+              ) : (
+                <>
+                  <FiSend />
+                  Send message
+                </>
+              )}
+            </motion.button>
+          </motion.div>
 
           {status === "error" && (
-            <p role="alert" className="mt-4 text-sm text-[#f85149]">
+            <motion.p
+              initial={{
+                opacity: 0,
+                y: -6,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              role="alert"
+              className="mt-4 text-sm text-[#f85149]"
+            >
               {errMsg}
-            </p>
+            </motion.p>
           )}
 
           {status === "ok" && (
-            <p role="status" className="mt-4 text-sm text-green">
+            <motion.p
+              initial={{
+                opacity: 0,
+                y: -6,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              role="status"
+              className="mt-4 text-sm text-green"
+            >
               Thanks! Your message has been sent successfully.
-            </p>
+            </motion.p>
           )}
-        </form>
-      </div>
+        </motion.form>
+      </motion.div>
     </section>
   );
 }

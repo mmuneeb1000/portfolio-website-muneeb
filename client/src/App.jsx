@@ -14,11 +14,11 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main className="mx-4 my-6 lg:mx-auto lg:w-280">
-        <Hero />
+      <Hero />
+      <main className="mx-4 my-6 lg:mx-auto lg:w-240">
         <Contact />
         <div
-          className="relative overflow-hidden rounded-3xl p-4 lg:px-10 
+          className="relative overflow-hidden rounded-3xl p-4 lg:px-8 
           border border-border bg-emerald-950/30  
          [html[data-theme='light']_&]:bg-emerald-50/60 "
         >

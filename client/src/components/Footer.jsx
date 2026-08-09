@@ -14,6 +14,18 @@ export default function Footer({ theme, toggleTheme }) {
       label: "twitter",
       href: "https://x.com/Kiwitourist",
     },
+    {
+      label: "facebook",
+      href: "https://www.facebook.com/webdevpkstore",
+    },
+    {
+      label: "instagram",
+      href: "https://instagram.com/webdevstore",
+    },
+    {
+      label: "tiktok",
+      href: "https://www.tiktok.com/@web.dev.store",
+    },
   ];
 
   return (

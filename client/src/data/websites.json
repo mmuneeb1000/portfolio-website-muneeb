@@ -12,8 +12,16 @@
   {
     "id": 2,
     "name": "firstnarrative",
-    "description": "FirstNarrative - Responsive News Website",
-    "tech": ["Wordpress", "PHP"],
+    "description": "FirstNarrative - Full-stack responsive news and publishing platform",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "PHP",
+      "MySQL",
+      "REST API",
+      "Google OAuth"
+    ],
     "github": "",
     "live": "https://firstnarrative.live/",
     "size": "",

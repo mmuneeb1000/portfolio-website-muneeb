@@ -1,6 +1,31 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import RepositoryCard from "./Card";
 import componentsInfo from "../data/components.json";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.06,
+    },
+  },
+};
+
+const revealVariants = {
+  hidden: {
+    opacity: 0,
+    y: 12,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.35,
+      ease: "easeOut",
+    },
+  },
+};
 
 export default function Components() {
   const [projects, setProjects] = useState([]);
@@ -12,29 +37,57 @@ export default function Components() {
   }, []);
 
   return (
-    <section id="components" className="mb-8">
-      <h2 className="mb-6">~/components</h2>
+    <section id="components" className="px-6 py-12 md:px-10 md:py-16">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{
+          once: true,
+          amount: 0.15,
+        }}
+        className="mx-auto max-w-7xl"
+      >
+        <motion.p variants={revealVariants} className="mb-5 text-sm text-green">
+          ~/components
+        </motion.p>
 
-      {loading ? (
-        <p className="text-muted">fetching...</p>
-      ) : (
-        <div>
-          <div className="mb-3 hidden grid-cols-[80px_60px_1fr_120px] gap-4 border-b border-border pb-2 text-xs text-muted md:grid">
-            <span>perms</span>
-            <span>size</span>
-            <span>name</span>
-            <span className="text-right">modified</span>
-          </div>
+        {loading ? (
+          <motion.p variants={revealVariants} className="text-muted">
+            fetching...
+          </motion.p>
+        ) : (
+          <motion.div variants={containerVariants}>
+            <motion.div
+              variants={revealVariants}
+              className="mb-2 hidden grid-cols-[80px_60px_1fr_120px] gap-4 px-4 text-xs text-muted md:grid"
+            >
+              <span>perms</span>
+              <span>size</span>
+              <span>name</span>
+              <span className="text-right">modified</span>
+            </motion.div>
 
-          {projects.map((project) => (
-            <RepositoryCard key={project.id} item={project} />
-          ))}
+            <motion.div
+              variants={containerVariants}
+              className="flex flex-col gap-3"
+            >
+              {projects.map((project) => (
+                <motion.div key={project.id} variants={revealVariants}>
+                  <RepositoryCard item={project} />
+                </motion.div>
+              ))}
+            </motion.div>
 
-          <p className="mt-4 text-xs text-muted">
-            {projects.length} directories
-          </p>
-        </div>
-      )}
+            <motion.p
+              variants={revealVariants}
+              className="mt-3 text-xs text-muted"
+            >
+              {projects.length} directories
+            </motion.p>
+          </motion.div>
+        )}
+      </motion.div>
     </section>
   );
 }

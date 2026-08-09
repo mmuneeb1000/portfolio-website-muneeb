@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
 
 const lines = [
   {
@@ -40,8 +41,33 @@ const lines = [
   },
 ];
 
+const skills = [
+  "WordPress",
+  "PHP",
+  "React",
+  "Next.js",
+  "JavaScript",
+  "TypeScript",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "Supabase",
+  "Tailwind CSS",
+  "Vite",
+  "REST APIs",
+  "OpenAI API",
+  "Git",
+  "Figma",
+  "Responsive UI",
+];
+
 function TypedLine({ text, speed = 40, onDone }) {
   const [displayed, setDisplayed] = useState("");
+  const onDoneRef = useRef(onDone);
+
+  useEffect(() => {
+    onDoneRef.current = onDone;
+  }, [onDone]);
 
   useEffect(() => {
     setDisplayed("");
@@ -49,20 +75,44 @@ function TypedLine({ text, speed = 40, onDone }) {
     let i = 0;
 
     const id = setInterval(() => {
-      setDisplayed(text.slice(0, i + 1));
-      i++;
+      i += 1;
+      setDisplayed(text.slice(0, i));
 
       if (i >= text.length) {
         clearInterval(id);
-        onDone && onDone();
+        onDoneRef.current?.();
       }
     }, speed);
 
     return () => clearInterval(id);
-  }, [text]);
+  }, [text, speed]);
 
   return <span>{displayed}</span>;
 }
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const revealVariants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: "easeOut",
+    },
+  },
+};
 
 export default function Hero() {
   const [visibleLines, setVisibleLines] = useState([]);
@@ -73,82 +123,100 @@ export default function Hero() {
 
     if (!next) return;
 
-    const t = setTimeout(() => {
-      setVisibleLines((prev) => [...prev, { ...next, typing: true }]);
+    const timeout = setTimeout(() => {
+      setVisibleLines((prev) => [
+        ...prev,
+        {
+          ...next,
+          typing: true,
+        },
+      ]);
     }, next.delay);
 
-    return () => clearTimeout(t);
+    return () => clearTimeout(timeout);
   }, [typingIndex]);
 
-  const handlePromptDone = (i) => {
+  function handlePromptDone(index) {
     setTimeout(() => {
       setVisibleLines((prev) =>
-        prev.map((l, idx) => (idx === i ? { ...l, showOutput: true } : l)),
+        prev.map((line, lineIndex) =>
+          lineIndex === index
+            ? {
+                ...line,
+                typing: false,
+                showOutput: true,
+              }
+            : line,
+        ),
       );
 
       setTimeout(() => {
         setTypingIndex((prev) => prev + 1);
       }, 200);
     }, 120);
-  };
-
-  const skills = [
-    "WordPress",
-    "PHP",
-    "React",
-    "Next.js",
-    "JavaScript",
-    "TypeScript",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "Supabase",
-    "Tailwind CSS",
-    "Vite",
-    "REST APIs",
-    "OpenAI API",
-    "Git",
-    "Figma",
-    "Responsive UI",
-  ];
+  }
 
   return (
-    <section className="flex min-h-[calc(100vh-5rem)] items-center py-12">
-      <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        {/* LEFT: PROFILE */}
-        <div>
-          <p className="mb-4 font-mono text-sm text-green">
-            <span className="text-muted">~/</span>portfolio
-          </p>
+    <section className="p-6 md:px-8 lg:py-10">
+      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:items-center">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.p
+            variants={revealVariants}
+            className="mb-5 text-sm text-green"
+          >
+            ~/portfolio
+          </motion.p>
 
-          <h1 className="text-5xl font-bold tracking-tight text-text md:text-6xl">
-            M. Muneeb
-          </h1>
+          <motion.h1
+            variants={revealVariants}
+            className="text-5xl font-bold tracking-tightest text-text md:text-6xl"
+          >
+            M.Muneeb
+          </motion.h1>
 
-          <p className="mt-4 text-xl text-green">Frontend Developer</p>
+          <motion.p
+            variants={revealVariants}
+            className="mt-4 text-xl text-green"
+          >
+            Frontend Developer
+          </motion.p>
 
-          <p className="mt-6 max-w-xl text-base leading-7 text-muted">
+          <motion.p
+            variants={revealVariants}
+            className="mt-6 max-w-xl text-base leading-7 text-muted"
+          >
             I build modern web applications, responsive interfaces, dashboards,
             and SaaS products using modern JavaScript technologies.
-          </p>
+          </motion.p>
 
-          <div className="mt-8 flex gap-3">
-            <a
+          <motion.div variants={revealVariants} className="mt-8 flex gap-3">
+            <motion.a
               href="#projects"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
               className="rounded border border-green bg-green px-4 py-2 text-sm text-surface"
             >
               View Projects
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
               href="#contact"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
               className="rounded border border-border px-4 py-2 text-sm text-text transition hover:border-green hover:text-green"
             >
               Contact Me
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
 
-          <div className="mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-6">
+          <motion.div
+            variants={revealVariants}
+            className="mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-6"
+          >
             <div>
               <p className="text-2xl font-semibold text-text">5+</p>
               <p className="mt-1 text-xs text-muted">Years Experience</p>
@@ -163,9 +231,9 @@ export default function Hero() {
               <p className="text-2xl font-semibold text-text">∞</p>
               <p className="mt-1 text-xs text-muted">Things to Build</p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="mt-10">
+          <motion.div variants={revealVariants} className="mt-10">
             <p className="mb-3 text-xs text-muted">
               <span className="text-green"># </span>
               skills /
@@ -173,26 +241,43 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
-                <span
+                <motion.span
                   key={skill}
-                  className="tech-pill rounded border px-3 py-1 text-xs bg-green-muted text-green border-[#004d2e]"
+                  whileHover={{
+                    y: -2,
+                    scale: 1.03,
+                  }}
+                  className="tech-pill rounded border border-[#004d2e] bg-green-muted px-3 py-1 text-xs text-green"
                 >
                   {skill}
-                </span>
+                </motion.span>
               ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* RIGHT: TERMINAL */}
-        <div>
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: 40,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{
+            duration: 0.65,
+            delay: 0.2,
+            ease: "easeOut",
+          }}
+        >
           <div className="overflow-hidden rounded-[10px] border border-border bg-surface">
             <div className="flex items-center gap-2 border-b border-border bg-surface2 px-4 py-2.5">
-              {["#ff5f57", "#ffbd2e", "#28ca41"].map((c) => (
+              {["#ff5f57", "#ffbd2e", "#28ca41"].map((color) => (
                 <span
-                  key={c}
+                  key={color}
                   className="h-3 w-3 rounded-full"
-                  style={{ background: c }}
+                  style={{ background: color }}
                 />
               ))}
 
@@ -203,7 +288,7 @@ export default function Hero() {
 
             <div className="min-h-[300px] p-4 md:p-6 md:px-7">
               {visibleLines.map((line, i) => (
-                <div key={i} className="mb-1">
+                <div key={`${line.prompt}-${i}`} className="mb-1">
                   <div>
                     <span className="select-none text-green">
                       webdevpk@store:~${" "}
@@ -220,9 +305,14 @@ export default function Hero() {
                   </div>
 
                   {line.showOutput && (
-                    <div className="mb-2 text-text text-[14px]">
+                    <motion.div
+                      initial={{ opacity: 0, y: -3 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="mb-2 text-[14px] text-text"
+                    >
                       {line.output}
-                    </div>
+                    </motion.div>
                   )}
                 </div>
               ))}
@@ -243,7 +333,7 @@ export default function Hero() {
             <span className="text-muted">ls projects/</span>
             <span className="cursor" />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
