@@ -37,7 +37,7 @@ export default function Components() {
   }, []);
 
   return (
-    <section id="components" className="px-6 py-12 md:px-10 md:py-16">
+    <section id="components" className="px-2 py-8 md:px-4 md:py-12">
       <motion.div
         variants={containerVariants}
         initial="hidden"

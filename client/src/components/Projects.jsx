@@ -37,7 +37,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="px-6 py-12 md:px-10 md:py-16">
+    <section id="projects" className="px-2 py-8 md:px-4 md:py-12">
       <motion.div
         initial="hidden"
         whileInView="visible"

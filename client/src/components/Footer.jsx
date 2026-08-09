@@ -33,7 +33,7 @@ export default function Footer({ theme, toggleTheme }) {
       className="flex flex-col gap-4 items-center lg:flex-row lg:justify-between 
       border-t border-border px-6 py-6 text-center text-xs text-text"
     >
-      <div className="flex justify-center gap-6">
+      <div className="grid grid-cols-3 md:flex gap-2 ">
         {links.map((link) => (
           <a
             key={link.label}

@@ -37,7 +37,7 @@ export default function Websites() {
   }, []);
 
   return (
-    <section id="websites" className="px-6 py-12 md:px-10 md:py-16">
+    <section id="websites" className="px-2 py-8 md:px-4 md:py-12">
       <motion.div
         variants={containerVariants}
         initial="hidden"
