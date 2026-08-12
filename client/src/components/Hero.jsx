@@ -160,15 +160,15 @@ export default function Hero() {
     <section className="px-4 py-8 md:px-6 lg:py-12">
       <div className="noise pointer-events-none absolute inset-0 opacity-[0.04]" />
 
-      <div className="relative z-10 grid gap-8 lg:grid-cols-2 lg:items-stretch">
+      <div className="relative max-w-[1200px] mx-auto z-10 grid gap-8 lg:grid-cols-2 lg:items-stretch">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="
               flex flex-col justify-center
-              rounded-2xl border border-border
-              bg-surface2/70
+              
+              
               p-5
               md:p-7
               lg:p-8

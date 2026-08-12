@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <header className="border-b border-border bg-bg/90 px-6 py-4 backdrop-blur">
-      <div className="mx-auto flex  items-center justify-between">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-between">
         <div className="flex gap-4 items-center">
           <img src={siteLogo} className="w-14 h-14 rounded-xl" />
           <a
