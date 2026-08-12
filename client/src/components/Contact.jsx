@@ -152,7 +152,7 @@ export default function Contact() {
     "w-full rounded-md border border-border bg-surface px-4 py-3 text-sm text-text outline-none transition-all duration-200 placeholder:text-muted/60 hover:border-green/60 focus:border-green focus:ring-2 focus:ring-green/10 disabled:cursor-not-allowed disabled:opacity-60";
 
   return (
-    <section id="contact" className="px-6 py-10 md:px-10 lg:py-16">
+    <section id="contact" className="p-6 lg:py-12">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -372,7 +372,7 @@ export default function Contact() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors text-sm hover:text-green focus:text-green focus:outline-none"
+              className="transition-colors text-xs hover:text-green focus:text-green focus:outline-none"
             >
               ./{link.label}
             </a>
