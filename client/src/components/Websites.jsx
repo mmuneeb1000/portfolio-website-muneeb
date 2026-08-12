@@ -37,7 +37,7 @@ export default function Websites() {
   }, []);
 
   return (
-    <section id="websites" className="px-2 py-8 md:px-4 md:py-12">
+    <section id="websites" className=" px-2 py-8 md:px-4 md:py-12">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -59,18 +59,8 @@ export default function Websites() {
         ) : (
           <motion.div variants={containerVariants}>
             <motion.div
-              variants={revealVariants}
-              className="mb-2 hidden grid-cols-[80px_60px_1fr_120px] gap-4 px-4 text-xs text-muted md:grid"
-            >
-              <span>perms</span>
-              <span>size</span>
-              <span>name</span>
-              <span className="text-right">modified</span>
-            </motion.div>
-
-            <motion.div
               variants={containerVariants}
-              className="flex flex-col gap-3"
+              className=" grid md:grid-cols-2 gap-3"
             >
               {websites.map((website) => (
                 <motion.div key={website.id} variants={revealVariants}>

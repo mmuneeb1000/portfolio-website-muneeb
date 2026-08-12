@@ -102,13 +102,13 @@ const containerVariants = {
 const revealVariants = {
   hidden: {
     opacity: 0,
-    y: 24,
+    y: 20,
   },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.55,
+      duration: 0.5,
       ease: "easeOut",
     },
   },
@@ -157,48 +157,67 @@ export default function Hero() {
   }
 
   return (
-    <section className="p-6 md:px-8 lg:py-10">
-      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:items-center">
+    <section className="px-4 py-8 md:px-6 lg:py-12">
+      <div className="noise pointer-events-none absolute inset-0 opacity-[0.04]" />
+
+      <div className="relative z-10 grid gap-8 lg:grid-cols-2 lg:items-stretch">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          className="
+              flex flex-col justify-center
+              rounded-2xl border border-border
+              bg-surface2/70
+              p-5
+              md:p-7
+              lg:p-8
+            "
         >
-          <motion.p
+          <motion.div
             variants={revealVariants}
-            className="mb-5 text-sm text-green"
+            className="mb-6 flex items-center gap-2"
           >
-            ~/portfolio
-          </motion.p>
+            <span className="h-2 w-2 rounded-full bg-green" />
+            <span className="font-mono text-xs text-green">~/portfolio</span>
+          </motion.div>
 
           <motion.h1
             variants={revealVariants}
-            className="text-5xl font-bold tracking-tightest text-text md:text-6xl"
+            className="text-4xl font-bold tracking-tight text-text sm:text-5xl md:text-6xl"
           >
-            M.Muneeb
+            M. Muneeb
           </motion.h1>
 
           <motion.p
             variants={revealVariants}
-            className="mt-4 text-xl text-green"
+            className="mt-4 font-mono text-sm text-green md:text-base"
           >
             Frontend Developer
           </motion.p>
 
           <motion.p
             variants={revealVariants}
-            className="mt-6 max-w-xl text-base leading-7 text-muted"
+            className="mt-6 max-w-xl text-sm leading-7 text-muted md:text-base"
           >
             I build modern web applications, responsive interfaces, dashboards,
             and SaaS products using modern JavaScript technologies.
           </motion.p>
 
-          <motion.div variants={revealVariants} className="mt-8 flex gap-3">
+          <motion.div
+            variants={revealVariants}
+            className="mt-7 flex flex-wrap gap-3"
+          >
             <motion.a
               href="#projects"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="rounded border border-green bg-green px-4 py-2 text-sm text-surface"
+              className="
+                  rounded-md border border-green
+                  bg-green px-5 py-2.5
+                  text-sm font-medium text-surface
+                  transition-opacity hover:opacity-90
+                "
             >
               View Projects
             </motion.a>
@@ -207,7 +226,13 @@ export default function Hero() {
               href="#contact"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="rounded border border-border px-4 py-2 text-sm text-text transition hover:border-green hover:text-green"
+              className="
+                  rounded-md border border-border
+                  bg-surface px-5 py-2.5
+                  text-sm text-text
+                  transition-colors
+                  hover:border-green hover:text-green
+                "
             >
               Contact Me
             </motion.a>
@@ -215,26 +240,34 @@ export default function Hero() {
 
           <motion.div
             variants={revealVariants}
-            className="mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-6"
+            className="
+                mt-8 grid grid-cols-3
+                border-y border-border
+                py-5
+              "
           >
             <div>
-              <p className="text-2xl font-semibold text-text">5+</p>
-              <p className="mt-1 text-xs text-muted">Years Experience</p>
+              <p className="text-xl font-semibold text-text md:text-2xl">5+</p>
+              <p className="mt-1 text-[11px] text-muted md:text-xs">
+                Years Experience
+              </p>
             </div>
 
-            <div>
-              <p className="text-2xl font-semibold text-text">20+</p>
-              <p className="mt-1 text-xs text-muted">Projects</p>
+            <div className="border-x border-border px-4">
+              <p className="text-xl font-semibold text-text md:text-2xl">20+</p>
+              <p className="mt-1 text-[11px] text-muted md:text-xs">Projects</p>
             </div>
 
-            <div>
-              <p className="text-2xl font-semibold text-text">∞</p>
-              <p className="mt-1 text-xs text-muted">Things to Build</p>
+            <div className="pl-4">
+              <p className="text-xl font-semibold text-text md:text-2xl">∞</p>
+              <p className="mt-1 text-[11px] text-muted md:text-xs">
+                Things to Build
+              </p>
             </div>
           </motion.div>
 
-          <motion.div variants={revealVariants} className="mt-10">
-            <p className="mb-3 text-xs text-muted">
+          <motion.div variants={revealVariants} className="mt-8">
+            <p className="mb-3 font-mono text-xs text-muted">
               <span className="text-green"># </span>
               skills /
             </p>
@@ -247,7 +280,17 @@ export default function Hero() {
                     y: -2,
                     scale: 1.03,
                   }}
-                  className="tech-pill rounded border border-[#004d2e] bg-green-muted px-3 py-1 text-xs text-green"
+                  transition={{
+                    duration: 0.15,
+                  }}
+                  className="
+                      rounded-md border border-border
+                      bg-green-muted
+                      px-2.5 py-1.5
+                      text-[11px] text-green
+                      transition-colors
+                      hover:border-green
+                    "
                 >
                   {skill}
                 </motion.span>
@@ -259,7 +302,7 @@ export default function Hero() {
         <motion.div
           initial={{
             opacity: 0,
-            x: 40,
+            x: 32,
           }}
           animate={{
             opacity: 1,
@@ -270,26 +313,39 @@ export default function Hero() {
             delay: 0.2,
             ease: "easeOut",
           }}
+          className="flex"
         >
-          <div className="overflow-hidden rounded-[10px] border border-border bg-surface">
-            <div className="flex items-center gap-2 border-b border-border bg-surface2 px-4 py-2.5">
-              {["#ff5f57", "#ffbd2e", "#28ca41"].map((color) => (
-                <span
-                  key={color}
-                  className="h-3 w-3 rounded-full"
-                  style={{ background: color }}
-                />
-              ))}
+          <div
+            className="
+                flex min-h-[430px] w-full flex-col
+                overflow-hidden rounded-2xl
+                border border-border
+                bg-surface
+              "
+          >
+            <div
+              className="
+                  flex items-center justify-between
+                  border-b border-border
+                  bg-surface2
+                  px-4 py-3
+                "
+            >
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#28ca41]" />
+              </div>
 
-              <span className="ml-2 text-xs text-muted">
-                portfolio — zsh — 80×24
+              <span className="font-mono text-[11px] text-muted">
+                portfolio — zsh
               </span>
             </div>
 
-            <div className="min-h-[300px] p-4 md:p-6 md:px-7">
+            <div className="flex-1 p-5 font-mono text-[13px] leading-6 md:p-7 md:text-sm">
               {visibleLines.map((line, i) => (
-                <div key={`${line.prompt}-${i}`} className="mb-1">
-                  <div>
+                <div key={`${line.prompt}-${i}`} className="mb-2">
+                  <div className="break-words">
                     <span className="select-none text-green">
                       webdevpk@store:~${" "}
                     </span>
@@ -300,16 +356,24 @@ export default function Hero() {
                         onDone={() => handlePromptDone(i)}
                       />
                     ) : (
-                      <span>{line.prompt}</span>
+                      <span className="text-text">{line.prompt}</span>
                     )}
                   </div>
 
                   {line.showOutput && (
                     <motion.div
-                      initial={{ opacity: 0, y: -3 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="mb-2 text-[14px] text-text"
+                      initial={{
+                        opacity: 0,
+                        y: -3,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 0.2,
+                      }}
+                      className="mt-0.5 break-words text-muted"
                     >
                       {line.output}
                     </motion.div>
@@ -318,7 +382,7 @@ export default function Hero() {
               ))}
 
               {typingIndex >= lines.length && (
-                <div>
+                <div className="mt-2">
                   <span className="select-none text-green">
                     webdevpk@store:~${" "}
                   </span>
@@ -326,12 +390,12 @@ export default function Hero() {
                 </div>
               )}
             </div>
-          </div>
 
-          <div className="mt-6 text-xs">
-            <span className="text-green">webdevpk@store:~$ </span>
-            <span className="text-muted">ls projects/</span>
-            <span className="cursor" />
+            <div className="border-t border-border bg-surface2/60 px-5 py-3 font-mono text-[11px] md:px-7">
+              <span className="text-green">webdevpk@store:~$ </span>
+              <span className="text-muted">ls projects/</span>
+              <span className="cursor" />
+            </div>
           </div>
         </motion.div>
       </div>

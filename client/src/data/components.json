@@ -88,5 +88,15 @@
     "live": "https://starlit-madeleine-162753.netlify.app/",
     "size": "9MB",
     "date": "June 12"
+  },
+  {
+    "id": 18,
+    "name": "simple-landing-page",
+    "description": "Social Media Dashboard with Dark Mode Toggle",
+    "tech": ["HTML5", "CSS3", "JavaScript"],
+    "github": "https://github.com/mmuneeb1000/simple-landing-page",
+    "live": "https://zesty-empanada-063624.netlify.app/",
+    "size": "9MB",
+    "date": "June 12"
   }
 ]

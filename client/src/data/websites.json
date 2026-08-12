@@ -1,13 +1,21 @@
 [
   {
-    "id": 1,
-    "name": "rareautoworld",
-    "description": "RareAutoWorld - Extensive Car Database",
-    "tech": ["Wordpress", "PHP"],
+    "name": "RareAutoWorld",
+    "description": "Headless automotive publication built with Next.js and WordPress.",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind",
+      "WordPress",
+      "REST API",
+      "PHP"
+    ],
+    "live": "https://rareautoworld.com",
     "github": "",
-    "live": "https://rareautoworld.com/",
-    "size": "",
-    "date": "January 2, 2025"
+    "image": "rareautoworld.jpg",
+    "date": "Aug 2026",
+    "size": "42kb"
   },
   {
     "id": 2,
@@ -24,6 +32,7 @@
     ],
     "github": "",
     "live": "https://firstnarrative.live/",
+    "image": "first-narrative.jpg",
     "size": "",
     "date": "February 2, 2026"
   }

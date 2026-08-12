@@ -59,18 +59,8 @@ export default function Components() {
         ) : (
           <motion.div variants={containerVariants}>
             <motion.div
-              variants={revealVariants}
-              className="mb-2 hidden grid-cols-[80px_60px_1fr_120px] gap-4 px-4 text-xs text-muted md:grid"
-            >
-              <span>perms</span>
-              <span>size</span>
-              <span>name</span>
-              <span className="text-right">modified</span>
-            </motion.div>
-
-            <motion.div
               variants={containerVariants}
-              className="flex flex-col gap-3"
+              className=" grid md:grid-cols-2 gap-3"
             >
               {projects.map((project) => (
                 <motion.div key={project.id} variants={revealVariants}>

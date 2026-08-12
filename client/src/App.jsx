@@ -14,25 +14,53 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <main className="mx-4 my-6 lg:mx-auto lg:w-240">
-        <Contact />
-        <div
-          className="relative overflow-hidden rounded-3xl p-4 lg:px-8 
-          border border-border bg-emerald-950/30  
-         [html[data-theme='light']_&]:bg-emerald-50/60 "
-        >
-          {/* Grain */}
-          <div className="pointer-events-none absolute inset-0 opacity-[0.045] noise" />
 
-          {/* Content */}
-          <div className="relative z-10">
-            <Websites />
-            <Projects />
-            <Components />
-          </div>
+      <Hero />
+
+      <main className="mx-auto w-full max-w-6xl px-4 py-8 md:px-6 lg:py-12">
+        <div className="noise pointer-events-none absolute inset-0 opacity-[0.04]" />
+
+        <div className="relative z-10 space-y-8 lg:space-y-10">
+          <section
+            className="
+                overflow-hidden rounded-2xl
+                border border-border
+                bg-surface2/80
+                backdrop-blur-sm
+              "
+          >
+            <Contact />
+          </section>
+
+          <section
+            className="
+                overflow-hidden rounded-2xl
+                border border-border
+                bg-surface2/70
+                backdrop-blur-sm
+              "
+          >
+            <div className="flex items-center justify-between border-b border-border px-5 py-3 md:px-7">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-border" />
+                <span className="h-2.5 w-2.5 rounded-full bg-border" />
+                <span className="h-2.5 w-2.5 rounded-full bg-green/70" />
+              </div>
+
+              <span className="font-mono text-[11px] text-muted">
+                ~/portfolio/work
+              </span>
+            </div>
+
+            <div className="space-y-14 p-5 md:p-7 lg:p-8">
+              <Websites />
+              <Projects />
+              <Components />
+            </div>
+          </section>
         </div>
       </main>
+
       <Footer theme={theme} toggleTheme={toggleTheme} />
     </>
   );

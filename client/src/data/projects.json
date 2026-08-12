@@ -1,5 +1,16 @@
 [
   {
+    "id": 8,
+    "name": "dynamic-map-app",
+    "description": "Typing Speed Test With Difficulty & Timed Mode",
+    "tech": ["TypeScript", "React", "React Router", "Tailwind CSS", "Vite"],
+    "github": "https://github.com/mmuneeb1000/dynamic-country-flag-app",
+    "live": "https://dynamic-map-app.netlify.app/",
+    "size": "226MB",
+    "image": "flag-app.jpg",
+    "date": "August 8"
+  },
+  {
     "id": 7,
     "name": "frontpage-rss-feed-reader",
     "description": "Frontpage - RSS Feed Reader App",
@@ -17,6 +28,7 @@
     ],
     "github": "https://github.com/mmuneeb1000/frontpage-feed-reader-rss",
     "live": "https://frontpage-feed-reader-rss.netlify.app/",
+    "image": "frontpage.jpg",
     "size": "250MB",
     "date": "July 27"
   },
@@ -38,6 +50,7 @@
     ],
     "github": "https://github.com/mmuneeb1000/closerkit",
     "live": "https://closerkit.netlify.app/",
+    "image": "closerkit.jpg",
     "size": "245MB",
     "date": "July 17"
   },
@@ -49,6 +62,7 @@
     "github": "https://github.com/mmuneeb1000/terraria-crafting-tree",
     "live": "https://terraria-tree.netlify.app/",
     "size": "260MB",
+    "image": "terraria-recipes.jpg",
     "date": "July 10"
   },
   {
@@ -59,6 +73,7 @@
     "github": "https://github.com/mmuneeb1000/foreign-exchange-checker",
     "live": "https://currency-converter-app-frankfurter.netlify.app/",
     "size": "112MB",
+    "image": "fx-checker.jpg",
     "date": "July 7"
   },
   {
@@ -69,6 +84,7 @@
     "github": "https://github.com/mmuneeb1000/weather-app-main",
     "live": "https://weather-app-open-mateo-fm.netlify.app/",
     "size": "82MB",
+    "image": "weather.jpg",
     "date": "June 27"
   },
   {
@@ -87,6 +103,7 @@
     "github": "https://github.com/mmuneeb1000/ip-address-tracker-with-leafletjs",
     "live": "https://stunning-toffee-e1de3d.netlify.app/",
     "size": "62MB",
+    "image": "ip-tracker.jpg",
     "date": "June 17"
   },
   {
@@ -97,6 +114,7 @@
     "github": "https://github.com/mmuneeb1000/typing-speed-test-dynamic",
     "live": "https://candid-biscochitos-9ae432.netlify.app/",
     "size": "10MB",
+    "image": "typing-test.jpg",
     "date": "June 15"
   }
 ]
