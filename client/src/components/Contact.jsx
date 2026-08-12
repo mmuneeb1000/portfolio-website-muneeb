@@ -2,6 +2,32 @@ import React, { useRef, useState } from "react";
 import { motion } from "motion/react";
 import { FiSend, FiCheck, FiLoader, FiMail, FiTerminal } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
+const links = [
+  {
+    label: "github",
+    href: "https://github.com/mmuneeb1000",
+  },
+  {
+    label: "linkedin",
+    href: "https://www.linkedin.com/in/m-muneeb-a9984633b/",
+  },
+  {
+    label: "twitter",
+    href: "https://x.com/Kiwitourist",
+  },
+  {
+    label: "facebook",
+    href: "https://www.facebook.com/webdevpkstore",
+  },
+  {
+    label: "instagram",
+    href: "https://instagram.com/webdevstore",
+  },
+  {
+    label: "tiktok",
+    href: "https://www.tiktok.com/@web.dev.store",
+  },
+];
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -339,6 +365,19 @@ export default function Contact() {
             )}
           </motion.form>
         </motion.div>
+        <div className="grid grid-cols-3 md:flex gap-4  mt-4">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-green focus:text-green focus:outline-none"
+            >
+              ./{link.label}
+            </a>
+          ))}
+        </div>
       </motion.div>
     </section>
   );

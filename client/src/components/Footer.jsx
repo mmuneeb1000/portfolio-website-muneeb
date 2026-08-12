@@ -33,19 +33,6 @@ export default function Footer({ theme, toggleTheme }) {
       className="flex flex-col gap-4 items-center lg:flex-row lg:justify-between 
       border-t border-border px-6 py-6 text-center text-xs text-text"
     >
-      <div className="grid grid-cols-3 md:flex gap-2 ">
-        {links.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-green focus:text-green focus:outline-none"
-          >
-            ./{link.label}
-          </a>
-        ))}
-      </div>
       <div className="flex flex-col md:flex-row items-center gap-4 ">
         <button
           onClick={toggleTheme}
