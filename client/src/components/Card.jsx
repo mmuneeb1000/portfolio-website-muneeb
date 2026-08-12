@@ -6,36 +6,28 @@ export default function RepositoryCard({
   showLive = true,
   showGithub = true,
 }) {
+  const name = `${item.name}${directory ? "/" : ""}`;
+
   return (
     <motion.div
-      whileHover={{
-        y: -3,
-      }}
-      transition={{
-        duration: 0.2,
-        ease: "easeOut",
-      }}
-      className="overflow-hidden rounded-lg border border-border bg-surface2 transition-colors hover:border-green"
+      whileHover={{ y: -3 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="overflow-hidden rounded-lg border border-border bg-surface2 hover:border-green"
     >
-      {item.image && (
+      {item.image && item.live && (
         <a
           href={item.live}
           target="_blank"
           rel="noreferrer"
-          className="group block overflow-hidden border-b border-border bg-black"
+          className="block overflow-hidden border-b border-border bg-black"
         >
           <div className="aspect-[4/3] overflow-hidden sm:aspect-video">
             <motion.img
               src={item.image}
               alt={`${item.name} website screenshot`}
               loading="lazy"
-              whileHover={{
-                scale: 1.02,
-              }}
-              transition={{
-                duration: 0.3,
-                ease: "easeOut",
-              }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="h-full w-full object-cover object-top"
             />
           </div>
@@ -43,67 +35,50 @@ export default function RepositoryCard({
       )}
 
       <div className="p-4">
-        <div className="md:grid md:grid-cols-[80px_60px_1fr_120px] md:gap-4">
-          <div className="mb-2 flex items-center justify-between md:mb-0 md:contents">
-            <span className="hidden text-xs text-muted md:flex">
-              {directory ? "drwxr-xr-x" : "-rw-r--r--"}
+        <div className="flex items-center justify-between gap-4 md:grid md:grid-cols-[90px_70px_minmax(0,1fr)_120px]">
+          <span className="hidden text-xs text-muted md:block">
+            {directory ? "drwxr-xr-x" : "-rw-r--r--"}
+          </span>
+
+          <span className="hidden text-xs text-muted md:block">
+            {item.size}
+          </span>
+
+          {showLive && item.live ? (
+            <motion.a
+              href={item.live}
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ x: 4 }}
+              transition={{ duration: 0.18 }}
+              className="min-w-0 truncate text-sm font-medium text-text"
+            >
+              {name}
+            </motion.a>
+          ) : (
+            <span className="min-w-0 truncate text-sm font-medium text-text">
+              {name}
             </span>
+          )}
 
-            <span className="text-xs text-muted md:hidden">{item.date}</span>
-          </div>
-
-          <div className="flex items-center justify-between md:contents">
-            <span className="mr-8 hidden text-xs text-muted md:flex">
-              {item.size}
-            </span>
-
-            {showLive ? (
-              <motion.a
-                href={item.live}
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{
-                  x: 4,
-                }}
-                transition={{
-                  duration: 0.18,
-                }}
-                className="text-right text-sm font-medium text-text lg:text-left"
-              >
-                {item.name}
-                {directory && "/"}
-              </motion.a>
-            ) : (
-              <span className="font-medium text-text">
-                {item.name}
-                {directory && "/"}
-              </span>
-            )}
-
-            <span className="hidden text-right text-xs text-muted md:block">
-              {item.date}
-            </span>
-          </div>
+          <span className="shrink-0 text-xs text-muted md:text-right">
+            {item.date}
+          </span>
         </div>
 
-        <p className="mb-3 mt-3 text-[13px] text-text">
+        <p className="my-3 text-[13px] text-text">
           <span className="text-green"># </span>
           {item.description}
         </p>
 
-        {item.tech?.length > 0 && (
+        {!!item.tech?.length && (
           <div className="mb-3 flex flex-wrap gap-2">
             {item.tech.map((tech) => (
               <motion.span
                 key={tech}
-                whileHover={{
-                  y: -2,
-                  scale: 1.03,
-                }}
-                transition={{
-                  duration: 0.15,
-                }}
-                className="tech-pill rounded border border-border bg-green-muted px-2 py-1 text-[11px] text-green"
+                whileHover={{ y: -2, scale: 1.03 }}
+                transition={{ duration: 0.15 }}
+                className="rounded border border-border bg-green-muted px-2 py-1 text-[11px] text-green"
               >
                 {tech}
               </motion.span>
@@ -117,16 +92,10 @@ export default function RepositoryCard({
               href={item.github}
               target="_blank"
               rel="noreferrer"
-              whileHover={{
-                x: 4,
-              }}
-              whileTap={{
-                scale: 0.97,
-              }}
-              transition={{
-                duration: 0.18,
-              }}
-              className="text-xs text-green transition-colors hover:text-text"
+              whileHover={{ x: 4 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.18 }}
+              className="text-xs text-green hover:text-text"
             >
               $ git clone →
             </motion.a>
@@ -137,16 +106,10 @@ export default function RepositoryCard({
               href={item.live}
               target="_blank"
               rel="noreferrer"
-              whileHover={{
-                x: 4,
-              }}
-              whileTap={{
-                scale: 0.97,
-              }}
-              transition={{
-                duration: 0.18,
-              }}
-              className="text-xs text-green transition-colors hover:text-text"
+              whileHover={{ x: 4 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.18 }}
+              className="text-xs text-green hover:text-text"
             >
               $ open live →
             </motion.a>

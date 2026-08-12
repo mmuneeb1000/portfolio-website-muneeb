@@ -365,14 +365,14 @@ export default function Contact() {
             )}
           </motion.form>
         </motion.div>
-        <div className="grid grid-cols-3 md:flex gap-4  mt-4">
+        <div className="grid grid-cols-3 md:flex gap-2 md:gap-6 mt-4">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-green focus:text-green focus:outline-none"
+              className="transition-colors text-sm hover:text-green focus:text-green focus:outline-none"
             >
               ./{link.label}
             </a>

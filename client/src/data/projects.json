@@ -2,7 +2,7 @@
   {
     "id": 8,
     "name": "dynamic-map-app",
-    "description": "Typing Speed Test With Difficulty & Timed Mode",
+    "description": "Dynamic Map With Countries API",
     "tech": ["TypeScript", "React", "React Router", "Tailwind CSS", "Vite"],
     "github": "https://github.com/mmuneeb1000/dynamic-country-flag-app",
     "live": "https://dynamic-map-app.netlify.app/",
@@ -12,7 +12,7 @@
   },
   {
     "id": 7,
-    "name": "frontpage-rss-feed-reader",
+    "name": "frontpage-rss-reader",
     "description": "Frontpage - RSS Feed Reader App",
     "tech": [
       "Supabase",
@@ -34,7 +34,7 @@
   },
   {
     "id": 1,
-    "name": "closer-kit-free-marketing-tool",
+    "name": "closerkit-marketing-tool",
     "description": "CloserKit - Leads & Proposals",
     "tech": [
       "MongoDB",
@@ -78,7 +78,7 @@
   },
   {
     "id": 4,
-    "name": "weather-app-with-open-meteo",
+    "name": "weather-app",
     "description": "Hourly, Daily and Current Weather with Open-Meteo API",
     "tech": ["React", "Tailwind CSS", "API"],
     "github": "https://github.com/mmuneeb1000/weather-app-main",
@@ -89,8 +89,8 @@
   },
   {
     "id": 5,
-    "name": "ip-address-tracker-with-leaflet.js",
-    "description": "IP Address Tracker With Map",
+    "name": "ip-address-tracker",
+    "description": "IP Address Tracker With leaflet.js",
     "tech": [
       "Leaflet.js",
       "Node.js",

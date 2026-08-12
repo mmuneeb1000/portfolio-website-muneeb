@@ -1,63 +1,37 @@
-import React from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
+
 export default function Footer({ theme, toggleTheme }) {
-  const links = [
-    {
-      label: "github",
-      href: "https://github.com/mmuneeb1000",
-    },
-    {
-      label: "linkedin",
-      href: "https://www.linkedin.com/in/m-muneeb-a9984633b/",
-    },
-    {
-      label: "twitter",
-      href: "https://x.com/Kiwitourist",
-    },
-    {
-      label: "facebook",
-      href: "https://www.facebook.com/webdevpkstore",
-    },
-    {
-      label: "instagram",
-      href: "https://instagram.com/webdevstore",
-    },
-    {
-      label: "tiktok",
-      href: "https://www.tiktok.com/@web.dev.store",
-    },
-  ];
+  const year = new Date().getFullYear();
 
   return (
-    <footer
-      className="flex flex-col gap-4 items-center lg:flex-row lg:justify-between 
-      border-t border-border px-6 py-6 text-center text-xs text-text"
-    >
-      <div className="flex flex-col md:flex-row items-center gap-4 ">
+    <footer className="border-t border-border px-4 py-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+        <p className="font-mono text-xs text-text">
+          m.muneeb@portfolio:~$ echo "Built with React + Vite + Tailwind CSS ·{" "}
+          {year}"
+        </p>
+
         <button
+          type="button"
           onClick={toggleTheme}
           aria-label="Toggle theme"
-          className={`relative flex h-6 w-20 items-center rounded-full border border-border transition-colors ${
+          className={`relative flex h-7 w-20 shrink-0 items-center rounded-full border border-border transition-colors ${
             theme === "dark" ? "bg-surface2" : "bg-green-muted"
           }`}
         >
-          <div
+          <span className="flex w-full justify-between px-2 text-muted">
+            <FiMoon size={14} />
+            <FiSun size={14} />
+          </span>
+
+          <span
             className={`absolute flex h-6 w-6 items-center justify-center rounded-full bg-green text-bg shadow transition-transform duration-300 ${
-              theme === "dark" ? "translate-x-1" : "translate-x-12"
+              theme === "dark" ? "translate-x-0.5" : "translate-x-[3.25rem]"
             }`}
           >
             {theme === "dark" ? <FiMoon size={14} /> : <FiSun size={14} />}
-          </div>
-
-          <div className="flex w-full justify-between px-2 text-muted">
-            <FiMoon size={14} />
-            <FiSun size={14} />
-          </div>
+          </span>
         </button>
-        <p className="font-mono">
-          m.muneeb@portfolio:~$ echo "Built with React + Vite + Tailwind CSS ·
-          {new Date().getFullYear()}"
-        </p>
       </div>
     </footer>
   );

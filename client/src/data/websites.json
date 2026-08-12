@@ -1,6 +1,7 @@
 [
   {
-    "name": "RareAutoWorld",
+    "id": "1",
+    "name": "rareAutoWorld",
     "description": "Headless automotive publication built with Next.js and WordPress.",
     "tech": [
       "Next.js",

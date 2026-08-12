@@ -167,8 +167,6 @@ export default function Hero() {
           animate="visible"
           className="
               flex flex-col justify-center
-              
-              
               p-5
               md:p-7
               lg:p-8
