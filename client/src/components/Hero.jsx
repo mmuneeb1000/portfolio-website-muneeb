@@ -16,7 +16,7 @@ const lines = [
     prompt: "stack --current",
     delay: 2000,
     output:
-      "React • Next.js • Node.js • Express • MongoDB • Supabase • Tailwind CSS",
+      "PHP • Wordpress • React • Next.js • Node.js • Express • MongoDB • Supabase • Tailwind CSS",
   },
   {
     prompt: "tools --list",
@@ -37,7 +37,7 @@ const lines = [
   {
     prompt: "echo $STATUS",
     delay: 5200,
-    output: "Open to interesting projects and collaborations.",
+    output: "Open to projects and collaborations.",
   },
 ];
 

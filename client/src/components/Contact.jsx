@@ -305,7 +305,10 @@ export default function Contact() {
                 transition={{
                   duration: 0.15,
                 }}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-green px-6 py-3 text-sm font-medium text-surface transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                className="inline-flex w-full items-center justify-center 
+                gap-2 rounded-md bg-green px-6 py-3 text-sm font-medium
+                 text-surface transition-opacity hover:opacity-90 
+                 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
                 {status === "sending" ? (
                   <>
@@ -341,7 +344,8 @@ export default function Contact() {
                   y: 0,
                 }}
                 role="alert"
-                className="mt-5 rounded-md border border-[#f85149]/30 bg-[#f85149]/5 px-4 py-3 text-sm text-[#f85149]"
+                className="mt-5 rounded-md border border-[#f85149]/30 bg-[#f85149]/5
+                 px-4 py-3 text-sm text-[#f85149]"
               >
                 {errMsg}
               </motion.div>
@@ -358,7 +362,8 @@ export default function Contact() {
                   y: 0,
                 }}
                 role="status"
-                className="mt-5 rounded-md border border-green/30 bg-green/5 px-4 py-3 text-sm text-green"
+                className="mt-5 rounded-md border border-green/30 
+                bg-green/5 px-4 py-3 text-sm text-green"
               >
                 Message sent successfully. I'll get back to you soon.
               </motion.div>
@@ -372,7 +377,8 @@ export default function Contact() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors text-xs hover:text-green focus:text-green focus:outline-none"
+              className="transition-colors text-xs hover:text-green 
+              focus:text-green focus:outline-none"
             >
               ./{link.label}
             </a>

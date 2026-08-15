@@ -52,7 +52,7 @@ export default function App() {
               </span>
             </div>
 
-            <div className="space-y-14 p-5 md:p-7 lg:p-8">
+            <div className="p-5 md:p-7 lg:p-8">
               <Websites />
               <Projects />
               <Components />
