@@ -392,7 +392,6 @@ export default function Hero() {
             <div className="border-t border-border bg-surface2/60 px-5 py-3 font-mono text-[11px] md:px-7">
               <span className="text-green">webdevpk@store:~$ </span>
               <span className="text-muted">ls projects/</span>
-              <span className="cursor" />
             </div>
           </div>
         </motion.div>
