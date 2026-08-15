@@ -4,6 +4,10 @@ import { FiSend, FiCheck, FiLoader, FiMail, FiTerminal } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 const links = [
   {
+    label: "whatsapp",
+    href: "https://wa.me/923481157315",
+  },
+  {
     label: "github",
     href: "https://github.com/mmuneeb1000",
   },
