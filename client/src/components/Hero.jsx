@@ -207,7 +207,7 @@ export default function Hero() {
             className="mt-7 flex flex-wrap gap-3"
           >
             <motion.a
-              href="#projects"
+              href="#websites"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="
@@ -217,7 +217,7 @@ export default function Hero() {
                   transition-opacity hover:opacity-90
                 "
             >
-              View Projects
+              View Websites
             </motion.a>
 
             <motion.a
