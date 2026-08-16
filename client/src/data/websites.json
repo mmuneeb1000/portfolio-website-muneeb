@@ -36,5 +36,16 @@
     "image": "first-narrative.jpg",
     "size": "",
     "date": "February 2, 2026"
+  },
+  {
+    "id": 3,
+    "name": "northbound-touring-company",
+    "description": "Premium travel company homepage for private northern Pakistan tours, destination galleries, testimonials, and mobile navigation.",
+    "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "JSON"],
+    "github": "https://github.com/mmuneeb1000/touring-company",
+    "live": "https://northbound-touring-company.netlify.app/",
+    "image": "northbound-touring-company.jpg",
+    "size": "563MB",
+    "date": "August 2026"
   }
 ]
