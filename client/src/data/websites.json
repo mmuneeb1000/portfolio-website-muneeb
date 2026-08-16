@@ -47,5 +47,16 @@
     "image": "northbound-touring-company.jpg",
     "size": "563MB",
     "date": "August 2026"
+  },
+  {
+    "id": 4,
+    "name": "avenue-and-co",
+    "description": "Real Estate Company in Lahore",
+    "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "JSON"],
+    "github": "https://github.com/mmuneeb1000/real-estate-lahore",
+    "live": "https://avenue-and-co.netlify.app/",
+    "image": "avenue.jpg",
+    "size": "380MB",
+    "date": "August 2026"
   }
 ]
