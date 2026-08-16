@@ -6,7 +6,8 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.06,
+      delayChildren: 0.04,
+      staggerChildren: 0.09,
     },
   },
 };
@@ -14,14 +15,18 @@ const containerVariants = {
 const revealVariants = {
   hidden: {
     opacity: 0,
-    y: 12,
+    y: 22,
+    scale: 0.985,
+    filter: "blur(6px)",
   },
   visible: {
     opacity: 1,
     y: 0,
+    scale: 1,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.35,
-      ease: "easeOut",
+      duration: 0.58,
+      ease: [0.2, 0.72, 0.18, 1],
     },
   },
 };
@@ -32,13 +37,20 @@ export default function Projects() {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.18, margin: "0px 0px -8% 0px" }}
         variants={containerVariants}
         className="mx-auto max-w-7xl"
       >
-        <motion.p variants={revealVariants} className="mb-5 text-sm text-green">
-          ~/projects
-        </motion.p>
+        <motion.div variants={revealVariants} className="mb-5">
+          <p className="text-sm text-green">~/projects</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text md:text-3xl">
+            Web Application Projects
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
+            Interactive apps, dashboards, tools, and frontend builds that show
+            practical problem solving with modern JavaScript and React.
+          </p>
+        </motion.div>
 
         <motion.div
           variants={containerVariants}

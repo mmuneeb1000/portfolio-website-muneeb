@@ -132,7 +132,8 @@ export default function Contact() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.08,
+        delayChildren: 0.04,
+        staggerChildren: 0.09,
       },
     },
   };
@@ -140,14 +141,18 @@ export default function Contact() {
   const revealVariants = {
     hidden: {
       opacity: 0,
-      y: 20,
+      y: 24,
+      scale: 0.985,
+      filter: "blur(6px)",
     },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
+      filter: "blur(0px)",
       transition: {
-        duration: 0.45,
-        ease: "easeOut",
+        duration: 0.62,
+        ease: [0.2, 0.72, 0.18, 1],
       },
     },
   };
@@ -163,7 +168,8 @@ export default function Contact() {
         whileInView="visible"
         viewport={{
           once: true,
-          amount: 0.2,
+          amount: 0.22,
+          margin: "0px 0px -8% 0px",
         }}
         className="mx-auto max-w-4xl"
       >
