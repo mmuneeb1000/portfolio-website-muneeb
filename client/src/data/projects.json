@@ -1,5 +1,16 @@
 [
   {
+    "id": 19,
+    "name": "dynamic-to-do-app",
+    "description": "Fully Configurable To-Do App With Touch Support",
+    "tech": ["Typescript", "Next", "Tailwind CSS", "React", "DND"],
+    "github": "https://github.com/mmuneeb1000/to-do-app",
+    "live": "https://dynamic-to-do-app.netlify.app/",
+    "size": "700MB",
+    "image": "to-do-app.jpg",
+    "date": "August 18"
+  },
+  {
     "id": 8,
     "name": "dynamic-map-app",
     "description": "Dynamic Map With Countries API",
@@ -105,16 +116,5 @@
     "size": "62MB",
     "image": "ip-tracker.jpg",
     "date": "June 17"
-  },
-  {
-    "id": 6,
-    "name": "typing-speed-test-dynamic",
-    "description": "Typing Speed Test With Difficulty & Timed Mode",
-    "tech": ["HTML5", "CSS3", "SCSS", "JavaScript"],
-    "github": "https://github.com/mmuneeb1000/typing-speed-test-dynamic",
-    "live": "https://candid-biscochitos-9ae432.netlify.app/",
-    "size": "10MB",
-    "image": "typing-test.jpg",
-    "date": "June 15"
   }
 ]
