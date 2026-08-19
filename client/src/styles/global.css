@@ -180,18 +180,18 @@ a:hover {
 }
 
 .repo-card {
-  animation: cardEnter 0.45s ease forwards;
   transition:
     transform 180ms ease,
     border-color 180ms ease,
     background-color 180ms ease,
     box-shadow 180ms ease;
+  will-change: transform;
 }
 
 .repo-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: var(--color-green-dim);
-  box-shadow: 0 4px 8px rgba(0, 255, 133, 0.08);
+  box-shadow: 0 6px 14px rgba(0, 255, 133, 0.06);
 }
 .tech-pill {
   transition:
