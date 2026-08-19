@@ -8,7 +8,7 @@
     "live": "https://dynamic-to-do-app.netlify.app/",
     "size": "700MB",
     "image": "to-do-app.jpg",
-    "date": "August 18"
+    "date": "August 15"
   },
   {
     "id": 8,
@@ -116,5 +116,16 @@
     "size": "62MB",
     "image": "ip-tracker.jpg",
     "date": "June 17"
+  },
+  {
+    "id": 6,
+    "name": "typing-speed-test-dynamic",
+    "description": "Typing Speed Test With Difficulty & Timed Mode",
+    "tech": ["HTML5", "CSS3", "SCSS", "JavaScript"],
+    "github": "https://github.com/mmuneeb1000/typing-speed-test-dynamic",
+    "live": "https://candid-biscochitos-9ae432.netlify.app/",
+    "size": "10MB",
+    "image": "typing-test.jpg",
+    "date": "June 15"
   }
 ]
