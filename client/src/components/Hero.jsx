@@ -252,7 +252,7 @@ export default function Hero() {
             </div>
 
             <div className="border-x border-border px-4">
-              <p className="text-xl font-semibold text-text md:text-2xl">20+</p>
+              <p className="text-xl font-semibold text-text md:text-2xl">30+</p>
               <p className="mt-1 text-[11px] text-muted md:text-xs">Projects</p>
             </div>
 
