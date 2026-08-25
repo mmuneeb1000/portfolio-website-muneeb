@@ -1,7 +1,13 @@
 import RepositoryCard from "./Card";
-import websites from "../data/websites.json";
+import usePortfolioCollection from "../hooks/usePortfolioCollection";
 
 export default function Websites() {
+  const {
+    items: websites,
+    isLoading,
+    hasError,
+  } = usePortfolioCollection("websites");
+
   return (
     <section id="websites" className="px-2 py-8 md:px-4 md:py-12">
       <div className="mx-auto max-w-7xl">
@@ -17,11 +23,21 @@ export default function Websites() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {websites.map((website) => (
-            <div key={website.id} className="min-w-0">
-              <RepositoryCard item={website} />
-            </div>
-          ))}
+          {isLoading && (
+            <p className="text-sm text-muted">Loading directories...</p>
+          )}
+
+          {hasError && (
+            <p className="text-sm text-muted">Websites could not be loaded.</p>
+          )}
+
+          {!isLoading &&
+            !hasError &&
+            websites.map((website) => (
+              <div key={website.id} className="min-w-0">
+                <RepositoryCard item={website} />
+              </div>
+            ))}
         </div>
 
         <p className="mt-3 text-xs text-muted">
