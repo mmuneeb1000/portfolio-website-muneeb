@@ -86,7 +86,7 @@ async function parseResponse(response, fallbackMessage) {
 }
 
 export async function checkSession() {
-  const response = await fetch("/api/me.php", {
+  const response = await fetch("/api/session.php", {
     credentials: "same-origin",
     headers: {
       Accept: "application/json",
