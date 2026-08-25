@@ -7,9 +7,15 @@ import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import useTheme from "./hooks/useTheme.js";
 import Websites from "./components/Websites.jsx";
+import AdminApp from "./components/admin/AdminApp.jsx";
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
+  const isAdminRoute = window.location.pathname.startsWith("/admin");
+
+  if (isAdminRoute) {
+    return <AdminApp />;
+  }
 
   return (
     <>
