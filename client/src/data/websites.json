@@ -2,8 +2,8 @@
   {
     "id": 5,
     "name": "terraria-crafting-tree",
-    "description": "Terraria Crafting Trees With Dynamic Items Mapping",
-    "tech": ["React", "Node.js", "React Router", "Tailwind CSS"],
+    "description": "Terraria Crafting Trees With Dynamic Items Mapping With Wordpress Blog",
+    "tech": ["React", "Node.js", "React Router", "Tailwind CSS", "WordPress"],
     "github": "",
     "live": "https://terrariaguide.com/",
     "size": "260MB",
