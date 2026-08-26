@@ -1,42 +1,35 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 const lines = [
   {
     prompt: "whoami",
-    delay: 400,
     output: "M. Muneeb",
   },
   {
     prompt: "cat role.txt",
-    delay: 1200,
-    output: "Frontend Developer building modern web applications",
+    output: "Web Developer building modern web applications",
   },
   {
     prompt: "stack --current",
-    delay: 2000,
     output:
-      "PHP • Wordpress • React • Next.js • Node.js • Express • MongoDB • Supabase • Tailwind CSS",
+      "PHP • WordPress • React • Next.js • Node.js • Express • MongoDB • Supabase • Tailwind CSS",
   },
   {
     prompt: "tools --list",
-    delay: 2800,
     output: "Vite • Git • REST APIs • OpenAI API • EmailJS • Figma",
   },
   {
     prompt: "ls projects/",
-    delay: 3600,
     output:
       "CloserKit • Frontpage • Portfolio • Weather • Currency • IP-Tracker",
   },
   {
     prompt: "cat experience.md",
-    delay: 4400,
     output: "5+ years building websites, dashboards and SaaS applications",
   },
   {
     prompt: "echo $STATUS",
-    delay: 5200,
     output: "Open to projects and collaborations.",
   },
 ];
@@ -44,21 +37,16 @@ const lines = [
 const skills = [
   "WordPress",
   "PHP",
-  "React",
+  "MERN",
   "Next.js",
   "JavaScript",
   "TypeScript",
-  "Node.js",
-  "Express",
-  "MongoDB",
   "Supabase",
   "Tailwind CSS",
   "Vite",
   "REST APIs",
   "OpenAI API",
   "Git",
-  "Figma",
-  "Responsive UI",
 ];
 
 function TypedLine({ text, speed = 40, onDone }) {
@@ -90,6 +78,39 @@ function TypedLine({ text, speed = 40, onDone }) {
   return <span>{displayed}</span>;
 }
 
+function TerminalLoader() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -2 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.15 }}
+      className="mt-2 flex items-center gap-2 font-mono text-[13px] md:text-sm"
+    >
+      <span className="select-none text-green">webdevpk@store:~$</span>
+
+      <span className="flex items-center gap-1">
+        {[0, 0.15, 0.3].map((delay, index) => (
+          <motion.span
+            key={index}
+            className="h-1.5 w-1.5 rounded-full bg-green"
+            animate={{
+              opacity: [0.25, 1, 0.25],
+              y: [0, -2, 0],
+            }}
+            transition={{
+              duration: 0.75,
+              repeat: Infinity,
+              delay,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </span>
+    </motion.div>
+  );
+}
+
 const containerVariants = {
   hidden: {},
   visible: {
@@ -117,21 +138,26 @@ const revealVariants = {
 export default function Hero() {
   const [visibleLines, setVisibleLines] = useState([]);
   const [typingIndex, setTypingIndex] = useState(0);
+  const [loadingNext, setLoadingNext] = useState(false);
 
   useEffect(() => {
     const next = lines[typingIndex];
 
     if (!next) return;
 
-    const timeout = setTimeout(() => {
-      setVisibleLines((prev) => [
-        ...prev,
-        {
-          ...next,
-          typing: true,
-        },
-      ]);
-    }, next.delay);
+    const timeout = setTimeout(
+      () => {
+        setVisibleLines((prev) => [
+          ...prev,
+          {
+            ...next,
+            typing: true,
+            showOutput: false,
+          },
+        ]);
+      },
+      typingIndex === 0 ? 500 : 180,
+    );
 
     return () => clearTimeout(timeout);
   }, [typingIndex]);
@@ -150,33 +176,42 @@ export default function Hero() {
         ),
       );
 
+      const hasNextLine = index < lines.length - 1;
+
+      if (!hasNextLine) {
+        setTimeout(() => {
+          setTypingIndex(lines.length);
+        }, 300);
+
+        return;
+      }
+
+      setLoadingNext(true);
+
       setTimeout(() => {
+        setLoadingNext(false);
         setTypingIndex((prev) => prev + 1);
-      }, 200);
+      }, 650);
     }, 120);
   }
 
   return (
-    <section className="px-4 py-8 md:px-6 lg:py-12">
+    <section className="relative px-4 py-8 md:px-6 lg:py-12">
       <div className="noise pointer-events-none absolute inset-0 opacity-[0.04]" />
 
-      <div className="relative max-w-[1200px] mx-auto z-10 grid gap-8 lg:grid-cols-2 lg:items-stretch">
+      <div className="relative z-10 mx-auto grid max-w-[1200px] gap-8 lg:grid-cols-2 lg:items-stretch">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="
-              flex flex-col justify-center
-              p-5
-              md:p-7
-              lg:p-8
-            "
+          className="flex flex-col justify-center p-5 md:p-7 lg:p-8"
         >
           <motion.div
             variants={revealVariants}
             className="mb-6 flex items-center gap-2"
           >
             <span className="h-2 w-2 rounded-full bg-green" />
+
             <span className="font-mono text-xs text-green">~/portfolio</span>
           </motion.div>
 
@@ -184,22 +219,22 @@ export default function Hero() {
             variants={revealVariants}
             className="text-4xl font-bold tracking-tight text-text sm:text-5xl md:text-6xl"
           >
-            M. Muneeb
+            M.Muneeb
           </motion.h1>
 
           <motion.p
             variants={revealVariants}
             className="mt-4 font-mono text-sm text-green md:text-base"
           >
-            Frontend Developer
+            Web Developer
           </motion.p>
 
           <motion.p
             variants={revealVariants}
             className="mt-6 max-w-xl text-sm leading-7 text-muted md:text-base"
           >
-            I build modern web applications, responsive interfaces, dashboards,
-            and SaaS products using modern JavaScript technologies.
+            I build and ship websites, web applications and SaaS products, from
+            interface and CMS work to APIs, authentication and deployment.
           </motion.p>
 
           <motion.div
@@ -211,11 +246,11 @@ export default function Hero() {
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="
-                  rounded-md border border-green
-                  bg-green px-5 py-2.5
-                  text-sm font-medium text-surface
-                  transition-opacity hover:opacity-90
-                "
+                rounded-md border border-green
+                bg-green px-5 py-2.5
+                text-sm font-medium text-surface
+                transition-opacity hover:opacity-90
+              "
             >
               View Websites
             </motion.a>
@@ -225,12 +260,12 @@ export default function Hero() {
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="
-                  rounded-md border border-border
-                  bg-surface px-5 py-2.5
-                  text-sm text-text
-                  transition-colors
-                  hover:border-green hover:text-green
-                "
+                rounded-md border border-border
+                bg-surface px-5 py-2.5
+                text-sm text-text
+                transition-colors
+                hover:border-green hover:text-green
+              "
             >
               Contact Me
             </motion.a>
@@ -239,13 +274,14 @@ export default function Hero() {
           <motion.div
             variants={revealVariants}
             className="
-                mt-8 grid grid-cols-3
-                border-y border-border
-                py-5
-              "
+              mt-8 grid grid-cols-3
+              border-y border-border
+              py-5
+            "
           >
             <div>
               <p className="text-xl font-semibold text-text md:text-2xl">5+</p>
+
               <p className="mt-1 text-[11px] text-muted md:text-xs">
                 Years Experience
               </p>
@@ -253,13 +289,17 @@ export default function Hero() {
 
             <div className="border-x border-border px-4">
               <p className="text-xl font-semibold text-text md:text-2xl">30+</p>
+
               <p className="mt-1 text-[11px] text-muted md:text-xs">Projects</p>
             </div>
 
             <div className="pl-4">
-              <p className="text-xl font-semibold text-text md:text-2xl">∞</p>
+              <p className="text-xl font-semibold text-text md:text-2xl">
+                FE → BE
+              </p>
+
               <p className="mt-1 text-[11px] text-muted md:text-xs">
-                Things to Build
+                Build Range
               </p>
             </div>
           </motion.div>
@@ -282,13 +322,13 @@ export default function Hero() {
                     duration: 0.15,
                   }}
                   className="
-                      rounded-md border border-border
-                      bg-green-muted
-                      px-2.5 py-1.5
-                      text-[11px] text-green
-                      transition-colors
-                      hover:border-green
-                    "
+                    rounded-md border border-border
+                    bg-green-muted
+                    px-2.5 py-1.5
+                    text-[11px] text-green
+                    transition-colors
+                    hover:border-green
+                  "
                 >
                   {skill}
                 </motion.span>
@@ -315,19 +355,19 @@ export default function Hero() {
         >
           <div
             className="
-                flex min-h-[430px] w-full flex-col
-                overflow-hidden rounded-2xl
-                border border-border
-                bg-surface
-              "
+              flex min-h-[360px] w-full flex-col
+              overflow-hidden rounded-2xl
+              border border-border
+              bg-surface
+            "
           >
             <div
               className="
-                  flex items-center justify-between
-                  border-b border-border
-                  bg-surface2
-                  px-4 py-3
-                "
+                flex items-center justify-between
+                border-b border-border
+                bg-surface2
+                px-4 py-3
+              "
             >
               <div className="flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
@@ -379,19 +419,40 @@ export default function Hero() {
                 </div>
               ))}
 
-              {typingIndex >= lines.length && (
-                <div className="mt-2">
+              <AnimatePresence>
+                {loadingNext && <TerminalLoader />}
+              </AnimatePresence>
+
+              {typingIndex >= lines.length && !loadingNext && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="mt-2"
+                >
                   <span className="select-none text-green">
                     webdevpk@store:~${" "}
                   </span>
-                  <span className="cursor" />
-                </div>
+
+                  <motion.span
+                    className="inline-block h-[1em] w-[7px] translate-y-[2px] bg-green"
+                    animate={{
+                      opacity: [1, 1, 0, 0],
+                    }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                    }}
+                  />
+                </motion.div>
               )}
             </div>
 
             <div className="border-t border-border bg-surface2/60 px-5 py-3 font-mono text-[11px] md:px-7">
               <span className="text-green">webdevpk@store:~$ </span>
-              <span className="text-muted">ls projects/</span>
+
+              <span className="text-muted">
+                {loadingNext ? "processing..." : "ls projects/"}
+              </span>
             </div>
           </div>
         </motion.div>
