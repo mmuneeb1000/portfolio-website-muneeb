@@ -5,17 +5,17 @@ const faqs = [
   {
     question: "Can you host and launch my website?",
     answer:
-      "Yes. I can set up hosting, connect your domain, configure SSL, handle redirects, and make sure the site is ready for visitors.",
+      "Yes. I can configure hosting, connect your domain, enable SSL, set up redirects, and prepare the site for a reliable public launch.",
   },
   {
     question: "Do you maintain existing websites?",
     answer:
-      "Yes. Maintenance can include content updates, bug fixes, responsive repairs, speed checks, WordPress support, and small feature improvements.",
+      "Yes. Maintenance can include content updates, bug fixes, responsive repairs, performance checks, WordPress support, and small feature improvements.",
   },
   {
     question: "Can you redesign an old website without rebuilding everything?",
     answer:
-      "Yes. I can improve layout, spacing, mobile experience, visuals, and messaging while keeping useful existing content and structure where it makes sense.",
+      "Yes. I can improve layout, spacing, mobile experience, visual consistency, and messaging while preserving useful existing content where appropriate.",
   },
   {
     question: "What technologies do you work with?",
@@ -30,7 +30,7 @@ const faqs = [
   {
     question: "How do we start a project?",
     answer:
-      "Send your website link, idea, or project scope through the contact form. I can review what you need and suggest the clearest next step.",
+      "Send your website link, project scope, or requirements through the contact form. I will review the details and recommend the most practical next step.",
   },
 ];
 
@@ -65,11 +65,11 @@ export default function FAQ() {
         <div className="mb-5">
           <p className="text-sm text-green">~/faq</p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text md:text-3xl">
-            Frequently Asked Questions
+            Service Questions
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
-            Quick answers for hosting, maintenance, redesigns, and custom web
-            development work.
+            Straightforward answers about hosting, maintenance, redesigns, and
+            custom web development work.
           </p>
         </div>
 

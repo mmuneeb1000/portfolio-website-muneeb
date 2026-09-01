@@ -275,7 +275,6 @@ export default function Hero() {
             variants={revealVariants}
             className="
               mt-8 grid grid-cols-3
-              border-y border-border
               py-5
             "
           >
@@ -295,7 +294,7 @@ export default function Hero() {
 
             <div className="pl-4">
               <p className="text-xl font-semibold text-text md:text-2xl">
-                FE → BE
+                FE | BE
               </p>
 
               <p className="mt-1 text-[11px] text-muted md:text-xs">

@@ -30,31 +30,31 @@ const services = [
     icon: FiCloud,
     command: "deploy --live",
     description:
-      "Set up, deploy, and connect websites so they are live, stable, secure, and ready for real visitors.",
-    points: ["Domain setup", "Netlify/Vercel hosting", "SSL and redirects"],
+      "Production deployment for business websites, including hosting configuration, domain connection, SSL, and launch checks.",
+    points: ["Domain setup", "Hosting configuration", "SSL and redirects"],
   },
   {
     title: "Website Maintenance",
     icon: FiRefreshCw,
     command: "maintain --monthly",
     description:
-      "Keep existing websites healthy with updates, bug fixes, content edits, backups, and performance checks.",
-    points: ["Bug fixes", "Content updates", "Speed checks"],
+      "Ongoing support to keep your website secure, current, and reliable after launch.",
+    points: ["Content updates", "Bug fixes", "Performance checks"],
   },
   {
     title: "Website Redesign",
     icon: FiEdit3,
     command: "redesign --modern",
     description:
-      "Refresh outdated pages with cleaner layouts, stronger messaging, responsive design, and a more professional feel.",
-    points: ["UI cleanup", "Mobile redesign", "Conversion-focused pages"],
+      "Modern redesigns for outdated websites, focused on stronger presentation, clearer messaging, and improved mobile experience.",
+    points: ["Visual refresh", "Mobile improvements", "Conversion pages"],
   },
   {
     title: "WordPress & PHP Work",
     icon: FiServer,
     command: "wp --custom",
     description:
-      "Build or improve WordPress sites, custom PHP features, REST API connections, and content-driven websites.",
+      "Custom WordPress and PHP development for content-managed websites, integrations, fixes, and structured publishing workflows.",
     points: ["WordPress setup", "PHP fixes", "CMS integrations"],
   },
   {
@@ -62,7 +62,7 @@ const services = [
     icon: FiCode,
     command: "build --frontend",
     description:
-      "Create modern interfaces, landing pages, dashboards, and full web apps using React, Next.js, and Tailwind CSS.",
+      "Production-ready frontend development for responsive websites, dashboards, landing pages, and application interfaces.",
     points: ["React apps", "Next.js pages", "Tailwind UI"],
   },
   {
@@ -70,7 +70,7 @@ const services = [
     icon: FiCpu,
     command: "connect --api",
     description:
-      "Connect frontend products to databases, authentication, third-party APIs, OpenAI features, and server routes.",
+      "Database, authentication, server route, and third-party API integration for websites and web applications.",
     points: ["Node/Express", "MongoDB/Supabase", "OpenAI API"],
   },
   {
@@ -78,7 +78,7 @@ const services = [
     icon: FiTool,
     command: "patch --frontend",
     description:
-      "Repair broken layouts, improve responsiveness, clean up components, and smooth out rough user experiences.",
+      "Targeted improvements for broken layouts, inconsistent styling, slow pages, and rough user experiences.",
     points: ["Responsive fixes", "Code cleanup", "UI polish"],
   },
 ];
@@ -114,12 +114,12 @@ export default function Services() {
         <div className="mb-5">
           <p className="text-sm text-green">~/services</p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text md:text-3xl">
-            Clear Web Services
+            Web Development Services
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
-            Hosting, maintenance, redesigns, and custom development backed by
-            the same stack used across my websites, dashboards, publishing
-            platforms, and SaaS-style projects.
+            Production-focused website services for businesses that need a
+            reliable launch, ongoing support, a cleaner redesign, or a custom
+            web product built with a modern stack.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2">
