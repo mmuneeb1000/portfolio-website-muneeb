@@ -7,6 +7,9 @@ import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import useTheme from "./hooks/useTheme.js";
 import Websites from "./components/Websites.jsx";
+import Services from "./components/Services.jsx";
+import FAQ from "./components/FAQ.jsx";
+import CTA from "./components/CTA.jsx";
 import AdminApp from "./components/admin/AdminApp.jsx";
 
 export default function App() {
@@ -59,9 +62,12 @@ export default function App() {
             </div>
 
             <div className="p-5 md:p-7 lg:p-8">
+              <Services />
               <Websites />
               <Projects />
               <Components />
+              <FAQ />
+              <CTA />
             </div>
           </section>
         </div>

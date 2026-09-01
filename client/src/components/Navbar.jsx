@@ -4,8 +4,10 @@ import siteLogo from "/sitelogo.png";
 
 const links = [
   { label: "~/contact", href: "#contact" },
-  { label: "~/projects", href: "#projects" },
+  { label: "~/services", href: "#services" },
+  { label: "~/faq", href: "#faq" },
   { label: "~/websites", href: "#websites" },
+  { label: "~/projects", href: "#projects" },
   { label: "~/components", href: "#components" },
 ];
 
