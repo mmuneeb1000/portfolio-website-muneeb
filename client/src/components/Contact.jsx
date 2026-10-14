@@ -55,11 +55,11 @@ const services = [
 ];
 
 const budgets = [
-  "Under PKR 15,000 (small fixes only)",
-  "PKR 15,000–30,000",
-  "PKR 30,000–75,000",
-  "PKR 75,000–150,000",
-  "PKR 150,000+",
+  "Under PKR 15,000 ($50)",
+  "PKR 15,000–30,000 ($100)",
+  "PKR 30,000–75,000 ($250)",
+  "PKR 75,000–150,000 ($400)",
+  "PKR 150,000+ ($600)",
   "Not sure yet",
 ];
 
