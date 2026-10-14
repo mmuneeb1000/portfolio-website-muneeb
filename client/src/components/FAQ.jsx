@@ -88,7 +88,7 @@ export default function FAQ() {
             <motion.article
               key={faq.question}
               variants={itemVariants}
-              className="repo-card rounded-xl border border-border bg-surface p-5"
+              className="repo-card rounded-xl bg-surface p-5"
             >
               <div className="mb-3 flex items-start gap-3">
                 <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-green/25 bg-green/10 text-green">

@@ -34,21 +34,6 @@ const lines = [
   },
 ];
 
-const skills = [
-  "WordPress",
-  "PHP",
-  "MERN",
-  "Next.js",
-  "JavaScript",
-  "TypeScript",
-  "Supabase",
-  "Tailwind CSS",
-  "Vite",
-  "REST APIs",
-  "OpenAI API",
-  "Git",
-];
-
 function TypedLine({ text, speed = 40, onDone }) {
   const [displayed, setDisplayed] = useState("");
   const onDoneRef = useRef(onDone);
@@ -269,70 +254,6 @@ export default function Hero() {
             >
               Contact Me
             </motion.a>
-          </motion.div>
-
-          <motion.div
-            variants={revealVariants}
-            className="
-              mt-8 grid grid-cols-3
-              py-5
-            "
-          >
-            <div>
-              <p className="text-xl font-semibold text-text md:text-2xl">5+</p>
-
-              <p className="mt-1 text-[11px] text-muted md:text-xs">
-                Years Experience
-              </p>
-            </div>
-
-            <div className="border-x border-border px-4">
-              <p className="text-xl font-semibold text-text md:text-2xl">30+</p>
-
-              <p className="mt-1 text-[11px] text-muted md:text-xs">Projects</p>
-            </div>
-
-            <div className="pl-4">
-              <p className="text-xl font-semibold text-text md:text-2xl">
-                FE | BE
-              </p>
-
-              <p className="mt-1 text-[11px] text-muted md:text-xs">
-                Build Range
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div variants={revealVariants} className="mt-8">
-            <p className="mb-3 font-mono text-xs text-muted">
-              <span className="text-green"># </span>
-              skills /
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
-                <motion.span
-                  key={skill}
-                  whileHover={{
-                    y: -2,
-                    scale: 1.03,
-                  }}
-                  transition={{
-                    duration: 0.15,
-                  }}
-                  className="
-                    rounded-md border border-border
-                    bg-green-muted
-                    px-2.5 py-1.5
-                    text-[11px] text-green
-                    transition-colors
-                    hover:border-green
-                  "
-                >
-                  {skill}
-                </motion.span>
-              ))}
-            </div>
           </motion.div>
         </motion.div>
 

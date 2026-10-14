@@ -50,14 +50,6 @@ const services = [
     points: ["Visual refresh", "Mobile improvements", "Conversion pages"],
   },
   {
-    title: "WordPress & PHP Work",
-    icon: FiServer,
-    command: "wp --custom",
-    description:
-      "Custom WordPress and PHP development for content-managed websites, integrations, fixes, and structured publishing workflows.",
-    points: ["WordPress setup", "PHP fixes", "CMS integrations"],
-  },
-  {
     title: "React & Next.js Development",
     icon: FiCode,
     command: "build --frontend",
@@ -126,7 +118,7 @@ export default function Services() {
             {skillset.map((skill) => (
               <span
                 key={skill}
-                className="rounded-md border border-green/20 bg-green-muted px-2.5 py-1 text-[11px] text-green"
+                className="rounded-md bg-green-muted px-2.5 py-1 text-[11px] text-green"
               >
                 {skill}
               </span>
@@ -152,7 +144,7 @@ export default function Services() {
               <motion.article
                 key={service.title}
                 variants={cardVariants}
-                className="repo-card flex min-h-full flex-col rounded-xl border border-border bg-surface p-5"
+                className="repo-card flex min-h-full flex-col rounded-xl  bg-surface p-5"
               >
                 <div className="mb-4 flex items-start justify-between gap-4">
                   <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-green/25 bg-green/10 text-green">
