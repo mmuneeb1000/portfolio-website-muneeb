@@ -584,6 +584,10 @@ export default function Contact() {
               ./{link.label}
             </a>
           ))}
+
+          <a href="mailto:contact@webdevpk.store" className="text-xs">
+            contact@webdevpk.store
+          </a>
         </div>
       </motion.div>
     </section>
